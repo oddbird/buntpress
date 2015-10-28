@@ -1,0 +1,40 @@
+{
+  "name": "buntpress",
+  "version": "1.0.0",
+  "description": "the buntport website",
+  "main": "index.php",
+  "dependencies": {},
+  "devDependencies": {
+    "accoutrement-a11y": "^1.0.5",
+    "accoutrement-color": "^1.0.3",
+    "accoutrement-fonts": "^1.0.4",
+    "accoutrement-layout": "^1.1.0",
+    "accoutrement-pseudo": "^1.0.2",
+    "accoutrement-queries": "^1.1.0",
+    "accoutrement-scale": "^1.1.0",
+    "autoprefixer": "^6.0.3",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "^2.1.0",
+    "gulp-sass-lint": "^1.0.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7",
+    "node-sass": "^3.4.1",
+    "sanitize.css": "^3.0.0"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ericam/buntpress.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ],
+  "author": "E Miriam Suzanne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ericam/buntpress/issues"
+  },
+  "homepage": "https://github.com/ericam/buntpress"
+}

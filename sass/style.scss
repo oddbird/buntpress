@@ -1,0 +1,16 @@
+/*!
+Theme Name: BuntPress
+Theme URI: http://miriamsuzanne.com/
+Author: Miriam Suzanne
+Author URI: http://miriamsuzanne.com/
+Description: A theme for Buntport Theater
+*/
+
+@import '../node_modules/sanitize.css/sanitize';
+
+[role='banner'],
+[role='navigation'],
+[role='main'],
+[role='contentinfo'] {
+  margin: 2rem 1rem;
+}
