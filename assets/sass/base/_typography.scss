@@ -8,7 +8,7 @@ input,
 select,
 textarea {
   color: $color-text-main;
-  font-family: $font-sans;
+  font-family: $font-body;
   line-height: $line-height-body;
 }
 
@@ -42,6 +42,10 @@ h5,
 h6,
 .h6 {
 
+}
+
+a {
+  text-decoration: none;
 }
 
 // Copy

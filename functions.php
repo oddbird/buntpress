@@ -108,8 +108,8 @@ function buntpress_widgets_init() {
   // Define sidebars
   $sidebars = array(
     'sidebar-1'  => esc_html__( 'Sidebar 1', 'buntpress' ),
-  //	'sidebar-2'  => esc_html__( 'Sidebar 2', 'buntpress' ),
-  //	'sidebar-3'  => esc_html__( 'Sidebar 3', 'buntpress' ),
+    'footer-social'  => esc_html__( 'Footer Social', 'buntpress' ),
+    'footer-signup'  => esc_html__( 'Footer Sign Up', 'buntpress' ),
   );
 
   // Loop through each sidebar and register

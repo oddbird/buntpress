@@ -337,7 +337,25 @@ function buntpress_do_copyright_text() {
   }
 
   // Echo the text.
-  echo '<span class="copyright-text">' . wp_kses_post( $copyright_text ) . '</span>';
+  echo '<aside class="copyright-text">' . wp_kses_post( $copyright_text ) . '</aside>';
+}
+
+
+/**
+ * Echo the customizer social icons
+ */
+function buntpress_show_social_links() {
+
+  // Grab our customizer settings.
+  $copyright_text = get_theme_mod( 'buntpress_copyright_text' );
+
+  // Stop if there's nothing to display.
+  if ( ! $copyright_text ) {
+    return false;
+  }
+
+  // Echo the text.
+  echo '<aside class="copyright-text">' . wp_kses_post( $copyright_text ) . '</aside>';
 }
 
 /**

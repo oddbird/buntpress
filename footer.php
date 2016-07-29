@@ -18,6 +18,8 @@
 
       <div class="site-info">
         <?php buntpress_do_copyright_text(); ?>
+        <?php dynamic_sidebar( 'footer-social' ); ?>
+        <?php dynamic_sidebar( 'footer-signup' ); ?>
       </div>
 
     </div><!-- .wrap -->

@@ -19,14 +19,14 @@ function buntpress_font_url() {
    * supported by the following, translate this to 'off'. Do not translate
    * into your own language.
    */
-  $roboto = _x( 'on', 'Roboto font: on or off', 'buntpress' );
-  $open_sans = _x( 'on', 'Open Sans font: on or off', 'buntpress' );
+  $catamaran = _x( 'on', 'Catamaran font: on or off', 'buntpress' );
+  $open_sans = _x( 'off', 'Open Sans font: on or off', 'buntpress' );
 
-  if ( 'off' !== $roboto || 'off' !== $open_sans ) {
+  if ( 'off' !== $catamaran || 'off' !== $open_sans ) {
     $font_families = array();
 
-    if ( 'off' !== $roboto ) {
-      $font_families[] = 'Roboto:400,700';
+    if ( 'off' !== $catamaran ) {
+      $font_families[] = 'Catamaran:300,400,700';
     }
 
     if ( 'off' !== $open_sans ) {

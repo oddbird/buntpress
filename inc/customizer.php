@@ -68,7 +68,7 @@ function buntpress_customize_register( $wp_customize ) {
         'buntpress_copyright_text',
         array(
             'label'       => esc_html__( 'Copyright Text', 'buntpress' ),
-            'description' => esc_html__( 'The copyright text will be displayed beneath the menu in the footer.', 'buntpress' ),
+            'description' => esc_html__( 'The copyright text will be displayed in the footer.', 'buntpress' ),
             'section'     => 'buntpress_footer_section',
             'type'        => 'text',
             'sanitize'    => 'html'
