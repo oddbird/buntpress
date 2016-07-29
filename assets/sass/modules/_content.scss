@@ -1,0 +1,49 @@
+//--------------------------------------------------------------
+// Site Content
+//--------------------------------------------------------------
+
+// Posts and pages
+
+.entry-title {
+  font-size: 2.25rem;
+}
+
+.sticky {
+  display: block;
+}
+
+.hentry {
+  margin: 0 0 1.5rem;
+}
+
+.byline,
+.updated:not(.published) {
+  display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+  display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+  margin: 1.5rem 0 0;
+}
+
+.page-links {
+  clear: both;
+  margin: 0 0 1.5rem;
+}
+
+.edit-link {
+  margin: 0 1.5rem;
+}
+
+// Asides
+
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+  display: none;
+}

@@ -1,0 +1,17 @@
+//--------------------------------------------------------------
+// Clearings
+//--------------------------------------------------------------
+
+.clear,
+.entry-content,
+.comment-content,
+.site-header,
+.site-content,
+.site-footer,
+.social-icons {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

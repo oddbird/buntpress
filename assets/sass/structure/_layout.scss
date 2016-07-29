@@ -1,0 +1,40 @@
+//--------------------------------------------------------------
+// Base Layout
+//--------------------------------------------------------------
+
+// Structure
+
+.wrap {
+  margin: 0 auto;
+  max-width: $max-width;
+  padding: 0 2 * $gutter;
+  width: 100%;
+
+  @include above('desktop') {
+    padding: 0;
+  }
+}
+
+.site-header,
+.site-footer {
+
+  @include above('tablet-landscape') {
+    padding: 0 2 * $gutter;
+  }
+}
+
+.site-content {
+  margin: 1.5rem auto;
+
+  @include above('desktop') {
+    margin: 2.5rem auto 4rem;
+  }
+}
+
+//.primary {
+//
+//}
+
+//.secondary {
+//
+//}

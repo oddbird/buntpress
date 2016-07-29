@@ -1,0 +1,19 @@
+//--------------------------------------------------------------
+// Alignments
+//--------------------------------------------------------------
+
+.alignleft {
+  display: inline;
+  float: left;
+  margin: 0 1.5rem 0 0;
+}
+
+.alignright {
+  display: inline;
+  float: right;
+  margin: 0 0 0 1.5rem;
+}
+
+.aligncenter {
+  @include margin-auto;
+}
