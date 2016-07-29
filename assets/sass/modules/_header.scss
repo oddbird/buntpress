@@ -2,11 +2,21 @@
 // Header
 //--------------------------------------------------------------
 
-.site-title {
-  font-size: 3rem;
+
+.site-header {
+  background-color: $color-darker;
+  display: flex;
+  padding: 1rem 0;
+
+  .wrap {
+    display: flex;
+  }
 }
 
-.site-description {
-  font-size: 1.5rem;
-  margin: 0 0 1.5rem;
+.site-title {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: .875;
+  margin-bottom: 0;
+  text-transform: uppercase;
 }

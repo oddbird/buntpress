@@ -20,7 +20,7 @@
   width: 0;
 
   // Don't show this puppy above tablet-landscape
-  @include above('tablet-landscape') {
+  @include above($tablet-landscape) {
     display: none;
   }
 
@@ -273,7 +273,7 @@
       .sub-menu {
         bottom: 0;
 
-        @include above('tablet-portrait') {
+        @include above($tablet-portrait) {
           bottom: auto;
         }
       }
@@ -295,7 +295,7 @@
     z-index: -1;
     width: 50vw;
 
-    @include above('tablet-portrait') {
+    @include above($tablet-portrait) {
       left: auto;
       right: 0;
     }

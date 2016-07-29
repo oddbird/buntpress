@@ -4,10 +4,21 @@
 
 .site-footer {
   background-color: $color-darker;
-  display: flex;
 
   &,
   a {
     color: $color-white;
   }
+}
+
+.site-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0 1rem;
+  width: 100%;
+}
+
+.copyright-text,
+.widget {
+  flex: 0 0 30%;
 }

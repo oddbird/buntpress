@@ -26,7 +26,7 @@ function buntpress_font_url() {
     $font_families = array();
 
     if ( 'off' !== $catamaran ) {
-      $font_families[] = 'Catamaran:300,400,700';
+      $font_families[] = 'Catamaran:300,400,700,900';
     }
 
     if ( 'off' !== $open_sans ) {

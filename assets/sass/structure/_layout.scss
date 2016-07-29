@@ -5,7 +5,7 @@
 // Structure
 
 .wrap {
-  margin: 0 auto;
+  display: flex;
   max-width: $max-width;
   padding: 0 2 * $gutter;
   width: 100%;
@@ -15,14 +15,6 @@
   }
 }
 
-
-.site-header,
-.site-footer {
-
-  @include above('tablet-landscape') {
-    padding: 0 2 * $gutter;
-  }
-}
 
 .site-content {
   margin: 1.5rem auto;

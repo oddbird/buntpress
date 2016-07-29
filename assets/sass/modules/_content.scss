@@ -3,9 +3,10 @@
 //--------------------------------------------------------------
 
 // Posts and pages
-
+.page-title,
 .entry-title {
-  font-size: 2.25rem;
+  color: $color-primary;
+  font-size: $fontsize-xl;
 }
 
 .sticky {
