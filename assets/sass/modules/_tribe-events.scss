@@ -1,0 +1,11 @@
+//--------------------------------------------------------------
+// Tribe Events
+//--------------------------------------------------------------
+
+.tribe-events-notices {
+  background: lighten($color-primary, 34%);
+  border-radius: 0;
+  border: 1px solid lighten($color-primary, 30%);
+  color: $color-darker;
+  text-shadow: 0;
+}

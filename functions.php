@@ -157,3 +157,7 @@ require get_template_directory() . '/inc/scripts.php';
  * Register custom metaboxes for products
  */
 require get_template_directory() . '/inc/cmb-reviews.php';
+
+
+/** remove additional product info **/
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
