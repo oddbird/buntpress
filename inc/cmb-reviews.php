@@ -34,7 +34,7 @@ function buntpress_register_repeatable_group_field_metabox() {
   $cmb_group = new_cmb2_box( array(
     'id'           => $prefix . 'metabox',
     'title'        => __( 'Reviews', 'cmb2' ),
-    'object_types' => array( 'wp_theatre_prod' ),
+    'object_types' => array( 'wp_theatre_prod', 'tribe_events' ),
   ) );
 
   // $group_field_id is the field id string, so in this case: $prefix . 'demo'

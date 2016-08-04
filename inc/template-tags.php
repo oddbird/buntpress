@@ -441,6 +441,7 @@ function buntpress_show_review() {
 
   if ( $entries ) {
     echo '<div class="reviews-container">';
+    echo '<h3 class="reviews-container-title">Reviews</h3>';
 
     foreach ( ( array) $entries as $key => $entry ) {
 
