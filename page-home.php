@@ -15,29 +15,51 @@ get_header(); ?>
     <div class="primary content-area">
       <main id="main" class="site-main" role="main">
 
-      <?php
-        // Retrieve the next 5 upcoming events
-        $events = tribe_get_events( array(
-            'posts_per_page' => 1,
-            'start_date' => date( 'Y-m-d H:i:s' )
-        ) );
+        <?php
+        // Ensure the global $post variable is in scope
+        global $post;
 
-        // Loop through the events: set up each one as
-        // the current post then use template tags to
-        // display the title and content
-        foreach ( $events as $post ) {
-          setup_postdata( $post );
+        $terms = get_terms( 'tribe_events_cat' );
+        $tribe_categories = tribe_get_event_cat_slugs();
 
-          // Show the date after the title!
-          echo "$post->post_title";
-          echo tribe_get_start_date( $post );
-          echo $event->post_content;
-        }
-      ?>
+        foreach( $terms as $tribe_category ){
+
+          echo '<article class="featured-event-wrapper">';
+
+          // Retrieve the next 5 upcoming events
+          $events = tribe_get_events( array(
+              'posts_per_page' => 1,
+              'tax_query'=> array(
+                array(
+                  'taxonomy' => 'tribe_events_cat',
+                  'field' => 'slug',
+                  'terms' => $tribe_category
+                )
+              )
+          ) );
+
+        foreach ( $events as $post ) : setup_postdata( $post ); ?>
+
+        <?php if ( has_post_thumbnail() ) {
+            the_post_thumbnail( 'large', array( 'class' => 'featured-event-image' ));
+          }
+        ?>
+
+          <h1 class="event-title">
+            <a href="<?php echo tribe_get_event_link(); ?>" rel="bookmark"><?php the_title(); ?></a>
+          </h1>
+
+          <?php the_excerpt(); ?>
+
+        <?php endforeach;
+        wp_reset_postdata();
+
+        echo '</article>';
+
+      } ?>
 
       </main><!-- #main -->
     </div><!-- .primary -->
-
   </div><!-- .wrap -->
 
 <?php get_footer(); ?>
