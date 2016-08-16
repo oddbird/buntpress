@@ -94,7 +94,7 @@ add_action( 'after_setup_theme', 'woocommerce_support' );
  * @global int $content_width
  */
 function buntpress_content_width() {
-  $GLOBALS['content_width'] = apply_filters( 'buntpress_content_width', 640 );
+  $GLOBALS['content_width'] = apply_filters( 'buntpress_content_width', 960 );
 }
 add_action( 'after_setup_theme', 'buntpress_content_width', 0 );
 
@@ -107,7 +107,7 @@ function buntpress_widgets_init() {
 
   // Define sidebars
   $sidebars = array(
-    'sidebar-1'  => esc_html__( 'Sidebar 1', 'buntpress' ),
+    'homepage'  => esc_html__( 'Homepage', 'buntpress' ),
     'footer-social'  => esc_html__( 'Footer Social', 'buntpress' ),
     'footer-signup'  => esc_html__( 'Footer Sign Up', 'buntpress' ),
   );
