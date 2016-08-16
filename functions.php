@@ -161,3 +161,21 @@ require get_template_directory() . '/inc/cmb-reviews.php';
 
 /** remove additional product info **/
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+
+
+/*
+ * Filter out default woocommerce checkout fields
+ */
+function buntpress_override_checkout_fields( $fields ) {
+    unset($fields['billing']['billing_company']);
+    unset($fields['billing']['billing_address_1']);
+    unset($fields['billing']['billing_address_2']);
+    unset($fields['billing']['billing_city']);
+    unset($fields['billing']['billing_postcode']);
+    unset($fields['billing']['billing_country']);
+    unset($fields['billing']['billing_state']);
+    unset($fields['billing']['billing_phone']);
+    return $fields;
+}
+add_filter( 'woocommerce_checkout_fields' , 'buntpress_override_checkout_fields' );
+
