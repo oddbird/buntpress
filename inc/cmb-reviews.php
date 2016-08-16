@@ -34,7 +34,7 @@ function buntpress_register_repeatable_group_field_metabox() {
   $cmb_group = new_cmb2_box( array(
     'id'           => $prefix . 'metabox',
     'title'        => __( 'Reviews', 'cmb2' ),
-    'object_types' => array( 'wp_theatre_prod', 'tribe_events' ),
+    'object_types' => array( 'tribe_events' ),
   ) );
 
   // $group_field_id is the field id string, so in this case: $prefix . 'demo'
@@ -70,9 +70,24 @@ function buntpress_register_repeatable_group_field_metabox() {
   ) );
 
   $cmb_group->add_group_field( $group_field_id, array(
+    'name' => __( 'Entry Image', 'cmb2' ),
+    'id'   => 'image',
+    'type' => 'file',
+  ) );
+
+  $cmb_group->add_group_field( $group_field_id, array(
+    'name' => __( 'Image Caption', 'cmb2' ),
+    'id'   => 'image_caption',
+    'type' => 'text',
+  ) );
+
+  $cmb_group->add_group_field( $group_field_id, array(
     'name'       => __( 'Review Name', 'cmb2' ),
     'id'         => 'review-name',
     'type'       => 'text',
   ) );
 
 }
+
+
+
