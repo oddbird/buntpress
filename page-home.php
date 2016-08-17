@@ -22,9 +22,10 @@ get_header(); ?>
         $terms = get_terms( 'tribe_events_cat' );
         $tribe_categories = tribe_get_event_cat_slugs();
 
-        foreach( $terms as $tribe_category ){
+        // The URL for the "View all" link.
+        $link_to_all = tribe_events_get_list_widget_view_all_link( $instance );
 
-          echo '<article class="featured-event-wrapper">';
+        foreach( $terms as $tribe_category ){
 
           // Retrieve the next 5 upcoming events
           $events = tribe_get_events( array(
@@ -40,10 +41,11 @@ get_header(); ?>
 
         foreach ( $events as $post ) : setup_postdata( $post ); ?>
 
-        <?php if ( has_post_thumbnail() ) {
-            the_post_thumbnail( 'large', array( 'class' => 'featured-event-image' ));
-          }
-        ?>
+        <article class="featured-event-wrapper <?php tribe_events_event_classes() ?>">
+          <?php if ( has_post_thumbnail() ) {
+              the_post_thumbnail( 'large', array( 'class' => 'featured-event-image' ));
+            }
+          ?>
 
           <h1 class="event-title">
             <a href="<?php echo tribe_get_event_link(); ?>" rel="bookmark"><?php the_title(); ?></a>
