@@ -49,14 +49,23 @@ get_header(); ?>
             <a href="<?php echo tribe_get_event_link(); ?>" rel="bookmark"><?php the_title(); ?></a>
           </h1>
 
+          <?php // Get any custom fields for this event
+          $fields = tribe_get_custom_fields();
+
+          // Is `Show runs from` set and not empty?
+          if ( isset( $fields['Show runs from'] ) and !empty( $fields['Show runs from'] ) ) { ?>
+            <span class="season-duration h3">
+              <?php tribe_custom_field('Show runs from'); ?>
+            </span>
+          <?php } ?>
+
           <?php the_excerpt(); ?>
 
-        <?php endforeach;
-        wp_reset_postdata();
+          <?php endforeach;
+          wp_reset_postdata(); ?>
 
-        echo '</article>';
-
-      } ?>
+        </article>
+        <?php } ?>
 
       </main><!-- #main -->
     </div><!-- .primary -->
