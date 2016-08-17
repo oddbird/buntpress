@@ -22,9 +22,6 @@ get_header(); ?>
         $terms = get_terms( 'tribe_events_cat' );
         $tribe_categories = tribe_get_event_cat_slugs();
 
-        // The URL for the "View all" link.
-        $link_to_all = tribe_events_get_list_widget_view_all_link( $instance );
-
         foreach( $terms as $tribe_category ){
 
           // Retrieve the next 5 upcoming events
