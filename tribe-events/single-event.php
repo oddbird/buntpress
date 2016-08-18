@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $event_id = get_the_ID();
+$date_format = 'l — F j, Y @ g:ia';
 
 ?>
 
@@ -23,16 +24,14 @@ $event_id = get_the_ID();
   <!-- Notices -->
   <?php tribe_the_notices() ?>
 
-  <?php the_title( '<h1>', '</h1>' ); ?>
+  <?php the_title( '<h2 class="show-title">', '</h2>' ); ?>
 
-  <div class="tribe-events-schedule">
-    <?php echo tribe_events_event_schedule_details( $event_id, '<h2>', '</h2>' ); ?>
-  </div>
+  <p class="show-dates">
+    <?php echo tribe_get_start_date ( $post_id, true, $date_format, null ); ?>
+  </p>
 
   <?php while ( have_posts() ) :  the_post(); ?>
     <div <?php post_class(); ?>>
-      <!-- Event featured image, but exclude link -->
-      <?php echo tribe_event_featured_image( $event_id, 'full', false ); ?>
 
       <!-- Event content -->
       <?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
@@ -44,11 +43,7 @@ $event_id = get_the_ID();
       <?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
       <?php do_action( 'tribe_events_single_event_after_the_meta' ) ?>
 
-      <!-- show reviews if available -->
-      <?php buntpress_show_review(); ?>
-
-      </div> <!-- #post-x -->
-    <?php if ( get_post_type() == Tribe__Events__Main::POSTTYPE && tribe_get_option( 'showComments', false ) ) comments_template() ?>
+    </div> <!-- #post-x -->
   <?php endwhile; ?>
 
 </div><!-- #tribe-events-content -->
