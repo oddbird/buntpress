@@ -5,14 +5,10 @@
 // Structure
 
 .wrap {
-  display: flex;
+  margin: 0 auto;
   max-width: $max-width;
-  padding: 0 2 * $gutter;
+  padding: 0 $gutter;
   width: 100%;
-
-  @include above('desktop') {
-    padding: 0;
-  }
 }
 
 
