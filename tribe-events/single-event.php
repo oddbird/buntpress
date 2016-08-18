@@ -24,7 +24,9 @@ $date_format = 'l — F j, Y @ g:ia';
   <!-- Notices -->
   <?php tribe_the_notices() ?>
 
-  <?php the_title( '<h2 class="show-title">', '</h2>' ); ?>
+  <h2 class="show-title">
+    <?php the_title(); ?>
+  </h2>
 
   <p class="show-dates">
     <?php echo tribe_get_start_date ( $post_id, true, $date_format, null ); ?>
