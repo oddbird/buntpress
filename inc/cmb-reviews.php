@@ -71,13 +71,13 @@ function buntpress_register_repeatable_group_field_metabox() {
 
   $cmb_group->add_group_field( $group_field_id, array(
     'name' => __( 'Entry Image', 'cmb2' ),
-    'id'   => 'image',
+    'id'   => 'review-image',
     'type' => 'file',
   ) );
 
   $cmb_group->add_group_field( $group_field_id, array(
     'name' => __( 'Image Caption', 'cmb2' ),
-    'id'   => 'image_caption',
+    'id'   => 'review-image_caption',
     'type' => 'text',
   ) );
 
@@ -88,6 +88,3 @@ function buntpress_register_repeatable_group_field_metabox() {
   ) );
 
 }
-
-
-
