@@ -26,6 +26,7 @@ a {
   li {
     display: flex;
     flex: 1 0 auto;
+    justify-content: center;
   }
 
   ul {
@@ -99,6 +100,16 @@ a {
   // Current items
   .current_page_item a,
   .current-menu-item a {
+    color: $color-link-hover;
+    font-weight: bold;
+
+    &:before {
+      content: ' [ ';
+    }
+
+    &:after {
+      content: ' ] ';
+    }
   }
 }
 
@@ -109,13 +120,11 @@ a {
 
 .main-navigation {
   clear: both;
-  display: none;
   height: auto;
   width: 100%;
 
-  @include above($tablet-landscape) {
+  @include above($tablet-portrait) {
     display: flex;
-    align-self: center;
     justify-content: flex-end;
     max-width: 60%;
   }
@@ -124,7 +133,7 @@ a {
   ul {
     display: none;
 
-    @include above($phone-landscape) {
+    @include above($tablet-portrait) {
       display: flex;
     }
   }
@@ -132,28 +141,13 @@ a {
   &.toggled ul {
     display: block;
   }
-
-  a {
-    color: $color-white;
-    font-weight: 700;
-
-    &:visited {
-      color: $color-white;
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      color: $color-link-hover;
-    }
-  }
 }
 
 // Small menu
 .menu-toggle {
   display: block;
 
-  @include above($phone-landscape) {
+  @include above($tablet-portrait) {
     display: none;
   }
 }

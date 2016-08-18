@@ -28,14 +28,28 @@
 <div id="page" class="site">
   <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'buntpress' ); ?></a>
 
+  <aside class="announce">
+    <a href="<?php echo get_site_url() ?>/product/season-subscription/">Subscribe to Season #16 »</a>
+  </aside>
+
   <header class="site-header">
     <div class="wrap">
 
       <div class="site-branding">
         <?php if ( is_front_page() && is_home() ) : ?>
-          <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+          <h1 class="site-title">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+              <span class="buntport">Buntport</span>
+              <span class="theater">Theater</span>
+            </a>
+          </h1>
         <?php else : ?>
-          <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+          <p class="site-title">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+              <span class="buntport">Buntport</span>
+              <span class="theater">Theater</span>
+            </a>
+          </p>
         <?php endif; ?>
       </div><!-- .site-branding -->
 

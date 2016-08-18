@@ -3,19 +3,36 @@
 //--------------------------------------------------------------
 
 
+.announce {
+  border-bottom: 2px dashed;
+  font-weight: bold;
+  text-align: center;
+
+  [href] {
+    display: block;
+    padding: 2rem;
+  }
+}
+
 .site-header {
-  background-color: $color-darker;
   display: flex;
-  padding: 1rem 0;
+  padding: 2rem 0 0;
 
   .wrap {
+    align-items: flex-end;
     display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
   }
+}
+
+.buntport,
+.theater {
+  display: block;
 }
 
 .site-title {
   font-size: 3rem;
-  font-weight: 900;
   line-height: .875;
   margin-bottom: 0;
   text-transform: uppercase;

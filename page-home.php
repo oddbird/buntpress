@@ -11,63 +11,134 @@
 
 get_header(); ?>
 
-  <div class="wrap">
-    <div class="primary content-area">
-      <main id="main" class="site-main" role="main">
+  <main class="wrap">
 
+  <?php
+  // Ensure the global $post variable is in scope
+  global $post;
+
+  $this_season = 'season-16';
+  $date_format = 'F j, Y';
+
+  $season = array(
+    'numberposts' => 10,
+    'category_name' => 'main-stage',
+    'tag' => $this_season
+  );
+
+  $mainstage = array_reverse ( query_posts($season) );
+
+  foreach ($mainstage as $index=>$post) : setup_postdata();
+    $tickets = get_site_url() . '/shows/';
+    $post_id = get_the_ID();
+    $today = date('Ymd');
+    $start_date = get_field( 'start_date', $post_id );
+    $end_date = get_field( 'end_date', $post_id );
+    $end_date = ( $end_date ) ? $end_date : $start_date;
+    $image_size = ( $index == 0 ) ? 'large' : 'medium';
+    $image_url = ( has_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id($post_id), $image_size ) : null;
+
+    if ( $end_date > $today ):
+      $start_date = new DateTime( $start_date );
+      $end_date = new DateTime( $end_date );
+  ?>
+    <article data-feature="main-stage" class="clear">
+      <?php if ( $image_url ): ?>
+        <div data-feature-image="<?php echo $image_size ?>" style="background-image: url(<?php echo $image_url[0]; ?>);"></div>
+      <?php endif; ?>
+
+      <a href="<?php echo $tickets . $start_date->format('Y-m') . '/'; ?>" class="ticket-link">
+        <span>Tickets</span>
+      </a>
+
+      <h2 class="show-title">
+        <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+          <?php the_title(); ?>
+        </a>
+      </h2>
+
+      <div class="show-dates">
         <?php
-        // Ensure the global $post variable is in scope
-        global $post;
+          echo $start_date->format($date_format);
 
-        $terms = get_terms( 'tribe_events_cat' );
-        $tribe_categories = tribe_get_event_cat_slugs();
+          if ( $end_date != $start_date ) {
+            echo '—';
+            echo $end_date->format($date_format);
+          }
+        ?>
+      </div>
 
-        foreach( $terms as $tribe_category ){
+      <div class="show-summary">
+        <?php the_excerpt(); ?>
+      </div>
+    </article>
+  <?php
+    endif;
+  endforeach;
 
-          // Retrieve the next 5 upcoming events
-          $events = tribe_get_events( array(
-              'posts_per_page' => 1,
-              'tax_query'=> array(
-                array(
-                  'taxonomy' => 'tribe_events_cat',
-                  'field' => 'slug',
-                  'terms' => $tribe_category
-                )
-              )
-          ) );
+  $slugs = array('third-tuesdays', 'all-ages', 'special-events');
+  foreach( $slugs as $slug ) :
 
-        foreach ( $events as $post ) : setup_postdata( $post ); ?>
+    $events = tribe_get_events( array(
+        'posts_per_page' => 1,
+        'tax_query'=> array(
+          array(
+            'taxonomy' => 'tribe_events_cat',
+            'field' => 'slug',
+            'terms' => $slug
+          )
+        )
+    ) );
 
-        <article class="featured-event-wrapper <?php tribe_events_event_classes() ?>">
-          <?php if ( has_post_thumbnail() ) {
-              the_post_thumbnail( 'large', array( 'class' => 'featured-event-image' ));
-            }
-          ?>
+    foreach ( $events as $post ) : setup_postdata( $post );
+      $post_id = get_the_ID();
+      $image_size = 'medium';
+      $image_url = ( has_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id($post_id), $image_size ) : null;
+      $fields = tribe_get_custom_fields();
+    ?>
+    <article data-feature="<?php echo $slug ?>" class="clear">
+      <h2 class="category-title">
+        <?php if ( $slug == 'third-tuesdays' ): ?>
+          Third Tuesdays
+        <?php elseif ( $slug == 'all-ages' ) : ?>
+          All Ages
+        <?php elseif ( $slug == 'special-events' ) : ?>
+          Guests & Special Events
+        <?php endif; ?>
+      </h2>
 
-          <h1 class="event-title">
-            <a href="<?php echo tribe_get_event_link(); ?>" rel="bookmark"><?php the_title(); ?></a>
-          </h1>
 
-          <?php // Get any custom fields for this event
-          $fields = tribe_get_custom_fields();
+      <?php if ( $image_url ): ?>
+        <div data-feature-image="<?php echo $image_size ?>" style="background-image: url(<?php echo $image_url[0]; ?>);"></div>
+      <?php endif; ?>
 
-          // Is `Show runs from` set and not empty?
-          if ( isset( $fields['Show runs from'] ) and !empty( $fields['Show runs from'] ) ) { ?>
-            <span class="season-duration h3">
-              <?php tribe_custom_field('Show runs from'); ?>
-            </span>
-          <?php } ?>
+      <a href="<?php echo $tickets . tribe_get_start_date ( $post_id, false, 'Y-m', null ) . '/'; ?>" class="ticket-link">
+        <span>Tickets</span>
+      </a>
 
-          <?php the_excerpt(); ?>
+      <h3 class="show-title">
+        <a href="<?php echo tribe_get_event_link(); ?>" rel="bookmark">
+          <?php the_title(); ?>
+        </a>
+      </h3>
 
-          <?php endforeach;
-          wp_reset_postdata(); ?>
+      <div class="show-dates">
+        <?php
+          echo tribe_get_start_date ( $post_id, false, $date_format, null );
+        ?>
+      </div>
 
-        </article>
-        <?php } ?>
+      <div class="show-summary">
+        <?php the_excerpt(); ?>
+      </div>
+    </article>
+  <?php
+    endforeach;
 
-      </main><!-- #main -->
-    </div><!-- .primary -->
-  </div><!-- .wrap -->
+  endforeach;
+  wp_reset_postdata();
+  ?>
+
+  </main><!-- .wrap -->
 
 <?php get_footer(); ?>

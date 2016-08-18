@@ -10,8 +10,21 @@
 ?>
 
 <article <?php post_class(); ?>>
+  <?php
+    $image_url = ( has_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' ) : null;
+    if ($image_url) :
+  ?>
+    <div data-feature-image="large" style="background-image: url(<?php echo $image_url[0]; ?>);"></div>
+  <?php endif; ?>
+
   <header class="entry-header">
-    <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+    <?php
+      $title_display = get_field( 'title_display', $post_id );
+
+      if ( $title_display[0] != 'hide' ) {
+        the_title( '<h1 class="entry-title">', '</h1>' );
+      }
+    ?>
   </header><!-- .entry-header -->
 
   <div class="entry-content">
