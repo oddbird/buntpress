@@ -28,9 +28,8 @@
 <div id="page" class="site">
   <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'buntpress' ); ?></a>
 
-  <!-- @@@ Hard-coded for now, based on the URL we expect once the site is live... -->
   <aside class="announce">
-    <a href="/product/season-subscription/">Subscribe to Season #16 »</a>
+    <a href="<?php echo get_site_url() ?>/product/season-subscription/">Subscribe to Season #16 »</a>
   </aside>
 
   <header class="site-header">

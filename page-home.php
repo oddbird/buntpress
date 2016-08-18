@@ -29,7 +29,7 @@ get_header(); ?>
   $mainstage = array_reverse ( query_posts($season) );
 
   foreach ($mainstage as $index=>$post) : setup_postdata();
-    $tickets = '/buntport/events/'; // @@@ Don't hard-code this link, silly
+    $tickets = get_site_url() . '/events/';
     $post_id = get_the_ID();
     $today = date('Ymd');
     $start_date = get_field( 'start_date', $post_id );
