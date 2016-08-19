@@ -69,18 +69,20 @@ get_header(); ?>
       </div>
 
       <div class="show-summary">
-        <?php the_excerpt(); ?>
+        <?php the_content( '' ); ?>
       </div>
     </article>
   <?php
     endif;
   endforeach;
 
+  $todaysDate = date('Y-m-d G:i:s');
   $slugs = array('third-tuesdays', 'all-ages', 'special-events');
   foreach( $slugs as $slug ) :
 
     $events = tribe_get_events( array(
         'posts_per_page' => 1,
+        'start_date' => date( 'Y-m-d H:i:s' ),
         'tax_query'=> array(
           array(
             'taxonomy' => 'tribe_events_cat',
@@ -129,7 +131,7 @@ get_header(); ?>
       </div>
 
       <div class="show-summary">
-        <?php the_excerpt(); ?>
+        <?php the_content( '' ); ?>
       </div>
     </article>
   <?php
