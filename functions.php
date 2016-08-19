@@ -207,7 +207,7 @@ function tribe_event_tickets_rsvp_success_script() {
 
   // @@@ Change this to URL that you want users redirected to
   // Include the full URL, so start with http://
-  $redirect_url = 'http://paypal.com';
+  $redirect_url = get_site_url() . '/donate/';
 
   echo '<script>document.location.href = "' . $redirect_url .'";</script>';
 
