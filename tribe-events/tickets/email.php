@@ -231,6 +231,10 @@
 			foreach ( $tickets as $ticket ) {
 				$count ++;
 
+				$ticket_product_id = get_post_meta( $ticket['ticket_id'], '_tribe_wooticket_product', true );
+				$ticket_product = get_post( $ticket_product_id );
+				$ticket_description = $ticket_product->post_excerpt;
+
 				if ( $count == 2 ) {
 					$break = 'page-break-before: always !important;';
 				}
@@ -316,17 +320,6 @@
 															<span style="color:#0a0a0e !important"><?php echo $start_date; ?></span>
 														</h4>
 													<?php endif; ?>
-													<?php
-														$cart = get_page_by_path( 'cart' );
-														$message = get_field( 'event_ticket_message', $cart->post_ID );
-														if ( ! empty( $message ) ):
-													?>
-														<p style="color:#0a0a0e; margin:0 !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-style:normal; font-size:15px; letter-spacing:normal; text-align:left;line-height: 100%;">
-															<span style="color:#0a0a0e !important">
-																<?php echo $message; ?>
-															</span>
-														</p>
-													<?php endif; ?>
 												</td>
 											</tr>
 										</table>
@@ -339,21 +332,24 @@
 										</table>
 										<table class="ticket-details" border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
 											<tr>
-												<td class="ticket-details" valign="top" align="left" width="100" style="padding: 0; width:100px; margin:0 !important;">
-													<h6 style="color:#909090 !important; margin:0 0 10px 0; font-family: 'Helvetica Neue', Helvetica, sans-serif; text-transform:uppercase; font-size:13px; font-weight:700 !important;"><?php esc_html_e( 'Ticket #', 'event-tickets' ); ?></h6>
-													<span style="color:#0a0a0e !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:15px;"><?php echo $ticket['ticket_id']; ?></span>
-												</td>
 												<td class="ticket-details" valign="top" align="left" width="120" style="padding: 0; width:120px; margin:0 !important;">
 													<h6 style="color:#909090 !important; margin:0 0 10px 0; font-family: 'Helvetica Neue', Helvetica, sans-serif; text-transform:uppercase; font-size:13px; font-weight:700 !important;"><?php esc_html_e( 'Ticket Type', 'event-tickets' ); ?></h6>
 													<span style="color:#0a0a0e !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:15px;"><?php echo $ticket['ticket_name']; ?></span>
 												</td>
-												<td class="ticket-details" valign="top" align="left" width="120" style="padding: 0 !important; width:120px; margin:0 !important;">
-													<h6 style="color:#909090 !important; margin:0 0 10px 0; font-family: 'Helvetica Neue', Helvetica, sans-serif; text-transform:uppercase; font-size:13px; font-weight:700 !important;"><?php esc_html_e( 'Purchaser', 'event-tickets' ); ?></h6>
-													<span style="color:#0a0a0e !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:15px;"><?php echo $ticket['holder_name']; ?></span>
+											</tr>
+										</table>
+										<table class="whiteSpace" border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tr>
+												<td valign="top" align="left" width="100%" height="30" style="height:30px; background:#f7f7f7; padding: 0 !important; margin:0 !important;">
+													<div style="margin:0; height:30px;"></div>
 												</td>
-												<td class="ticket-details new-row new-left-row" valign="top" align="left" width="120" style="padding: 0; width:120px; margin:0 !important;">
-													<h6 style="color:#909090 !important; margin:0 0 10px 0; font-family: 'Helvetica Neue', Helvetica, sans-serif; text-transform:uppercase; font-size:13px; font-weight:700 !important;"><?php esc_html_e( 'Security Code', 'event-tickets' ); ?></h6>
-													<span style="color:#0a0a0e !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:15px;"><?php echo $ticket['security_code']; ?></span>
+											</tr>
+										</table>
+										<table class="ticket-details" border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+											<tr>
+												<td class="ticket-details" valign="top" align="left" width="100" style="padding: 0; width:100%; margin:0 !important;">
+													<h6 style="color:#909090 !important; margin:0 0 10px 0; font-family: 'Helvetica Neue', Helvetica, sans-serif; text-transform:uppercase; font-size:13px; font-weight:700 !important;"><?php esc_html_e( 'Ticket Description', 'event-tickets' ); ?></h6>
+													<span style="color:#0a0a0e !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:15px;"><?php echo  $ticket_description; ?></span>
 												</td>
 											</tr>
 										</table>
