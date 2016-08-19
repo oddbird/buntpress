@@ -192,3 +192,8 @@ function custom_woocommerce_auto_complete_order( $order_id ) {
     $order = wc_get_order( $order_id );
     $order->update_status( 'completed' );
 }
+
+add_filter( 'wootickets-tickets-email-enabled', 'no_wooticket_emails' );
+function no_wooticket_emails() {
+    return 'no';
+}
