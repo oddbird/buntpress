@@ -33,3 +33,15 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
  * @since 2.5.0
  */
 do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_text, $email );
+
+?>
+
+<p>
+  Thanks for ordering from
+  <a href="http://buntport.com"><? echo get_option( 'blogname' ) ?></a>
+  Our box office opens a half hour before show time.
+  Seating is general admission.
+  We will hold reservations until 5 minutes before curtain,
+  but we will then make them available to standby customers.
+  Call 720-946-1388 if you have any questions.
+</p>
