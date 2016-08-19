@@ -192,10 +192,3 @@ function custom_woocommerce_auto_complete_order( $order_id ) {
     $order = wc_get_order( $order_id );
     $order->update_status( 'completed' );
 }
-
-add_action( 'init', 'wootickets_stop_sending_email' );
-function wootickets_stop_sending_email() {
-  $woo = TribeWooTickets::get_instance();
-  remove_filter( 'woocommerce_email_classes', array( $woo, 'add_email_class_to_woocommerce' ) );
-  add_action( 'woocommerce_email_after_order_table', array( $woo, 'add_tickets_msg_to_email' ) );
-}
