@@ -29,7 +29,7 @@
   <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'buntpress' ); ?></a>
 
   <aside class="announce">
-    <a href="<?php echo get_site_url() ?>/product/season-subscription/">Subscribe to Season #16 »</a>
+    <a href="<?php echo get_site_url() ?>/product-category/subscribe/">Subscribe to Season #16 »</a>
   </aside>
 
   <header class="site-header">
