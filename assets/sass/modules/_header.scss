@@ -4,13 +4,29 @@
 
 
 .announce {
-  border-bottom: 2px dashed;
+  font-size: $fontsize-m;
   font-weight: bold;
   text-align: center;
 
+  @include above($phone-landscape) {
+    font-size: $fontsize-l;
+  }
+
   [href] {
-    display: block;
-    padding: 2rem;
+    &:link,
+    &:visited {
+      background-color: $color-button-background;
+      border-bottom: 2px solid $color-button-background-hover;
+      color: $color-button-text;
+      display: block;
+      padding: 1em;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $color-button-background-hover;
+    }
   }
 }
 
