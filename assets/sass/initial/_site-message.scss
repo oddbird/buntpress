@@ -1,0 +1,30 @@
+// Site Message
+// ============
+
+$message-gradient:
+  color('callout') 49.9%,
+  transparent 50%,
+;
+
+.site-messages {
+  position: relative;
+  text-align: center;
+
+  @include after(' ') {
+    @include stretch(100%, 0, auto, 0);
+    background-image: linear-gradient(to bottom right, $message-gradient);
+    height: size('gutter');
+  }
+
+  @include above('small-screen') {
+    @include font-size('large');
+  }
+}
+
+.message {
+  #{$link} {
+    background-color: color('callout');
+    display: block;
+    padding: size('gutter');
+  }
+}

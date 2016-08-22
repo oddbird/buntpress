@@ -11,8 +11,6 @@
 
 get_header(); ?>
 
-  <main class="wrap">
-
   <?php
   // Ensure the global $post variable is in scope
   global $post;
@@ -140,7 +138,5 @@ get_header(); ?>
   endforeach;
   wp_reset_postdata();
   ?>
-
-  </main><!-- .wrap -->
 
 <?php get_footer(); ?>

@@ -1,0 +1,13 @@
+// Page Layout
+// ===========
+
+[data-region] {
+  margin: 0 auto;
+  max-width: size('page');
+  padding: size('shim') size('gutter');
+  width: 100%;
+}
+
+[data-region='main'] {
+  padding-bottom: size('gutter');
+}

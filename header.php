@@ -20,50 +20,39 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
+<script src="https://use.typekit.net/jjc1nib.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<span class="svg-defs"><?php buntpress_include_svg_icons(); ?></span>
-<div id="page" class="site">
-  <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'buntpress' ); ?></a>
+  <span class="svg-defs"><?php buntpress_include_svg_icons(); ?></span>
 
-  <aside class="announce">
-    <a href="<?php echo get_site_url() ?>/product/season-subscription/">Subscribe to Season #16 »</a>
+  <aside class="site-messages">
+    <a href="<?php echo get_site_url() ?>/product/season-subscription/" class="message">
+      Subscribe to Season #16 »
+    </a>
   </aside>
 
-  <header class="site-header">
-    <div class="wrap">
+  <header data-region="banner">
 
-      <div class="site-branding">
-        <?php if ( is_front_page() && is_home() ) : ?>
-          <h1 class="site-title">
-            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-              <span class="buntport">Buntport</span>
-              <span class="theater">Theater</span>
-            </a>
-          </h1>
-        <?php else : ?>
-          <p class="site-title">
-            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-              <span class="buntport">Buntport</span>
-              <span class="theater">Theater</span>
-            </a>
-          </p>
-        <?php endif; ?>
-      </div><!-- .site-branding -->
+    <h1 class="brand">
+      <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+        <span class="buntport">Buntport</span>
+        <span class="theater">Theater</span>
+      </a>
+    </h1>
 
-      <nav id="site-navigation" class="main-navigation">
-        <?php
-          wp_nav_menu( array(
-            'theme_location' => 'primary',
-            'menu_id'        => 'primary-menu',
-            'menu_class'     => 'menu dropdown'
-          ) );
-        ?>
-      </nav><!-- #site-navigation -->
+    <nav id="site-navigation" class="nav">
+      <?php
+        wp_nav_menu( array(
+          'theme_location' => 'primary',
+          'menu_id'        => 'primary-menu'
+        ) );
+      ?>
+    </nav>
 
-    </div><!-- .wrap -->
-  </header><!-- #masthead -->
+  </header>
 
-  <div id="content" class="site-content">
+  <main id="main" data-region="main">

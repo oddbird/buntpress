@@ -1,0 +1,108 @@
+// Banner Layout
+// =============
+
+
+
+[data-region='banner'] {
+  margin: size('gutter') auto 0;
+  position: relative;
+  z-index: 1;
+
+  .site-messages + & {
+    margin-top: negative('gutter');
+  }
+
+  @include above('small-screen') {
+    display: flex;
+    align-items: flex-end;
+  }
+
+}
+
+
+
+// Brand
+// -----
+
+.brand {
+  @include font-family('title');
+  font-size: calc(2.5rem + 2vw);
+  line-height: 1;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+
+  .buntport {
+    font-weight: bold;
+  }
+
+  @include above('small-screen') {
+    flex: 0 0 auto;
+    padding-right: size('gutter');
+
+    span {
+      display: block;
+    }
+
+    .theater {
+      font-size: 1.24em;
+    }
+  }
+}
+
+[rel='home'] {
+  #{$link} {
+    color: color('text');
+  }
+
+  #{$focus} {
+    color: color('action');
+    text-decoration: none;
+  }
+}
+
+
+// Navigation
+// ----------
+
+.nav {
+  flex: 1 1 auto;
+}
+
+.menu {
+  margin: size('gutter') 0 0;
+  padding: 0;
+  text-align: center;
+
+  @include above('small-screen') {
+    text-align: right;
+  }
+}
+
+.menu-item {
+  display: inline-block;
+  margin: 0;
+  padding: 2px size('shim');
+
+  [href] {
+    #{$link} {
+      color: color('text');
+      border-bottom: 2px solid transparent;
+    }
+
+    #{$focus} {
+      color: color('action');
+      text-decoration: none;
+    }
+  }
+}
+
+.current-menu-item {
+  [href] {
+    #{$link} {
+      color: inherit;
+      border-bottom-color: inherit;
+    }
+  }
+}
+

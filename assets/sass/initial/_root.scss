@@ -1,0 +1,18 @@
+// Root Initialization
+// ===================
+
+
+
+// Root Styles
+// -----------
+
+:root {
+  @include contrasted('background');
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}

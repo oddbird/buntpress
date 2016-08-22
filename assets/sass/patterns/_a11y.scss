@@ -1,0 +1,6 @@
+// Accessibility
+// =============
+
+.screen-reader-text {
+  @include is-hidden;
+}

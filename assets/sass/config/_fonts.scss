@@ -1,0 +1,61 @@
+// Fonts Config
+// ============
+
+
+
+// Dependencies
+// ------------
+
+@import '../../../node_modules/accoutrement-type/sass/type';
+
+
+
+$font-path: 'assets/fonts/';
+
+
+
+// Title Font
+// ---------
+/// Hello title font...
+/// @preview font-specimen; key: title
+$title-font: (
+  'name': 'amatic',
+  'stack': ('azo-sans-web', 'Helvetica Neue', Helvetica, Arial, sans-serif),
+  'regular': 'amaticsc-regular-webfont',
+  'bold': 'amatic-bold-webfont',
+);
+
+
+
+// Body Font
+// ---------
+/// hello body font...
+/// @preview font-specimen; key: body
+$body-font: (
+  'name': 'azo-sans-web',
+  'stack': ('Helvetica Neue', Helvetica, Arial, sans-serif),
+);
+
+
+
+// Code Font
+// ---------
+/// hello code font...
+/// @preview font-specimen; key: code
+$code-font: (
+  'name': 'Consolas',
+  'stack': (Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace),
+);
+
+
+
+// Font Palette
+// ------------
+
+@include set-fonts(
+  (
+    'title': $title-font,
+    'body': $body-font,
+    'code': $code-font,
+  )
+);

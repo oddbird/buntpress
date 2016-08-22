@@ -4,15 +4,13 @@
   "description": "A theme for Buntport",
   "main": "Gulpfile.js",
   "dependencies": {
-    "accoutrement-color": "2.0.1",
+    "accoutrement-color": "^2.0.1",
     "accoutrement-herman": "1.0.0-alpha.4",
-    "accoutrement-init": "1.1.0",
-    "accoutrement-layout": "2.1.0",
-    "accoutrement-scale": "2.0.0",
-    "accoutrement-type": "2.0.0",
+    "accoutrement-init": "^1.1.0",
+    "accoutrement-layout": "^2.1.0",
+    "accoutrement-scale": "^2.0.0",
+    "accoutrement-type": "^2.0.0",
     "autoprefixer": "^6.3.1",
-    "bourbon": "^4.2.7",
-    "bourbon-neat": "^1.8.0",
     "browser-sync": "^2.11.1",
     "css-mqpacker": "^4.0.0",
     "del": "^2.2.0",
@@ -38,7 +36,7 @@
     "gulp.spritesmith": "^6.2.0",
     "mathsass": "0.9.5",
     "sassdoc": "2.1.20",
-    "sassdoc-theme-herman": "0.2.1"
+    "sassdoc-theme-herman": "^0.3.0-alpha.1"
   },
   "devDependencies": {},
   "scripts": {

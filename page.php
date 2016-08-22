@@ -14,15 +14,12 @@
 
 get_header(); ?>
 
-	<main class="wrap">
-		<?php
-		while ( have_posts() ) : the_post();
+<?php
+while ( have_posts() ) : the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+	get_template_part( 'template-parts/content', 'page' );
 
-		endwhile; // End of the loop.
-		?>
-
-	</main><!-- .wrap -->
+endwhile; // End of the loop.
+?>
 
 <?php get_footer(); ?>

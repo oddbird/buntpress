@@ -1,0 +1,74 @@
+// Initial Typography
+// ------------------
+
+
+
+$link: '&:link, &:visited';
+$focus: '&:focus, &:hover, &:active';
+
+
+@include import-webfonts;
+
+
+
+// Base
+// ----
+
+html {
+  @include font-family('body');
+  font-size: percentage(size('root', 'px') / 16px);
+  font-size: calc(1em + 0.3vw);
+  line-height: map-get($ratios, 'buntpress');
+}
+
+
+
+// Defaults
+// --------
+
+h1,
+h2 {
+  font-weight: normal;
+}
+
+h1 {
+  font-size: calc(1rem + 2vw);
+}
+
+h2 {
+  font-size: calc(1rem + 1vw);
+}
+
+h3 {
+  font-size: calc(1rem + 0.5vw);
+}
+
+a {
+  #{$link} {
+    color: color('action');
+    text-decoration: none;
+  }
+
+  #{$focus} {
+    color: color('focus');
+    text-decoration: underline;
+  }
+}
+
+p,
+ul,
+ol,
+li,
+blockquote {
+  margin: 0.75rem 0;
+}
+
+ul,
+ol,
+blockquote {
+  padding: 0 0.75rem;
+}
+
+img {
+  max-width: 100%;
+}

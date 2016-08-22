@@ -12,13 +12,7 @@ Text Domain: buntpress
 Tags: custom
 */
 
-@import '../../node_modules/accoutrement-init/sass/init';
-
-@import "utilities/variables/index";
-@import "utilities/mixins/index";
-
-@import "base/index";
-@import "structure/index";
-@import "modules/index";
-@import "views/index";
-@import "widgets/index";
+@import 'config/manifest';
+@import 'initial/manifest';
+@import 'patterns/manifest';
+@import 'layout/manifest';

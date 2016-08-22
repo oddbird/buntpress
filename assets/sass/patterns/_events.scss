@@ -1,0 +1,104 @@
+// Tribe Events
+// ============
+
+
+.tribe-events-page-title {
+  text-align: left !important;
+}
+
+
+[data-feature='main-stage'] {
+  padding: 2rem 0;
+
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+
+[data-feature='special-events'] {
+  padding: 2rem 0;
+}
+
+
+[data-feature='third-tuesdays'],
+[data-feature='all-ages'] {
+  margin: 0 negative('gutter');
+  padding: 2rem size('gutter');
+}
+
+
+[data-feature='third-tuesdays'] {
+  background-color: rgb(251, 244, 238);
+  border: 2px dashed color('border');
+  border-width: 2px 0;
+}
+
+[data-feature='all-ages'] {
+  background-color: rgb(245, 251, 238);
+  border-bottom: 2px dashed color('border');
+}
+
+[data-feature-image] {
+  background-position: center;
+  background-size: cover;
+  padding-top: percentage(9/16);
+
+  @include above('small-screen') {
+    &:not([data-feature-image='large']) {
+      float: left;
+      margin-right: 1.5rem;
+      width: 20%;
+      padding-top: 20%;
+    }
+  }
+}
+
+.ticket-link {
+  #{$link} {
+    @include contrasted('action');
+    @include square(6em, 'em');
+    align-items: center;
+    border: 1px solid;
+    border-radius: 100%;
+    float: right;
+    font-weight: bold;
+    margin: 0 1.5rem;
+    position: relative;
+
+    @include below('small-screen') {
+      margin-top: -3em;
+    }
+
+    [data-feature-image='large'] + & {
+      margin-top: -3em;
+    }
+  }
+
+  #{$focus} {
+    background: color('focus');
+  }
+
+  span {
+    left: 50%;
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+    top: 50%;
+  }
+}
+
+.show-dates {
+  font-weight: bold;
+}
+
+// .tribe-events-notices {
+//   background: lighten($color-primary, 34%);
+//   border-radius: 0;
+//   border: 1px solid lighten($color-primary, 30%);
+//   color: $color-darker;
+//   text-shadow: 0;
+// }
+
+// .tribe-events-widget-link {
+//   display: none;
+// }
