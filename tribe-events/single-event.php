@@ -20,6 +20,14 @@ $date_format = 'l — F j, Y @ g:ia';
 ?>
 
 <div id="tribe-events-content" class="tribe-events-single">
+  <?php
+    $image_size = ( $index == 0 ) ? 'large' : 'medium';
+    $image_url = ( has_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id($post_id), $image_size ) : null;
+
+    if ( $image_url ):
+  ?>
+    <div data-feature-image="<?php echo $image_size ?>" style="background-image: url(<?php echo $image_url[0]; ?>);"></div>
+  <?php endif; ?>
 
   <!-- Notices -->
   <?php tribe_the_notices() ?>
