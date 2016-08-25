@@ -6,6 +6,10 @@
   text-align: left !important;
 }
 
+[data-feature] {
+  @include clearfix;
+}
+
 
 [data-feature='main-stage'] {
   padding: 2rem 0;
