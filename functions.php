@@ -214,3 +214,18 @@ function tribe_event_tickets_rsvp_success_script() {
 }
 add_action( 'wp_head', 'tribe_event_tickets_rsvp_success_script' );
 
+
+function tribe_add_admin_email_to_rsvp_email_recipient( $to ) {
+
+    if ( ! is_string( $to ) ) {
+        return $to;
+    }
+
+    $combined_to = array(
+        $to,
+        tribe_get_organizer_email()
+    );
+
+    return $combined_to;
+}
+add_filter( 'tribe_rsvp_email_recipient', 'tribe_add_admin_email_to_rsvp_email_recipient' );
