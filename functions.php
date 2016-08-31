@@ -202,9 +202,7 @@ function tribe_event_tickets_rsvp_success_script() {
 
   if( ! isset($_GET['rsvp_sent']) || $_GET['rsvp_sent'] != 1 ) return;
 
-  // @@@ Change this to URL that you want users redirected to
-  // Include the full URL, so start with http://
-  $redirect_url = get_site_url() . '/donate/';
+  $redirect_url = get_site_url() . '/rsvp/';
 
   echo '<script>document.location.href = "' . $redirect_url .'";</script>';
 
