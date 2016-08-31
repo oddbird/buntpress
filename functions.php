@@ -216,7 +216,7 @@ function tribe_add_admin_email_to_rsvp_email_recipient( $to ) {
         return $to;
     }
 
-    $combined_to = array( $to, get_bloginfo('admin_email') );
+    $combined_to = $to . ', ' . get_bloginfo('admin_email');
 
     return $combined_to;
 }
