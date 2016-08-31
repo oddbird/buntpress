@@ -27,13 +27,20 @@ textarea {
   min-height: 8rem;
 }
 
+button,
 .btn,
-.donate {
+.donate,
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
   &,
   #{$link} {
     @include contrasted('action');
     border-radius: size('corners');
     display: inline-block;
+    font: inherit;
+    font-weight: inherit;
     padding: size('half-shim') size('gutter');
     text-decoration: none;
   }
