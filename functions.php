@@ -209,14 +209,14 @@ function tribe_event_tickets_rsvp_success_script() {
 }
 
 
-add_filter( 'tribe_rsvp_email_recipient', 'tribe_add_admin_email_to_rsvp_email_recipient' );
-function tribe_add_admin_email_to_rsvp_email_recipient( $to ) {
+// add_filter( 'tribe_rsvp_email_recipient', 'tribe_add_admin_email_to_rsvp_email_recipient' );
+// function tribe_add_admin_email_to_rsvp_email_recipient( $to ) {
 
-    if ( ! is_string( $to ) ) {
-        return $to;
-    }
+//     if ( ! is_string( $to ) ) {
+//         return $to;
+//     }
 
-    $combined_to = $to . ', ' . get_bloginfo('admin_email');
+//     $combined_to = $to . ', ' . get_bloginfo('admin_email');
 
-    return $combined_to;
-}
+//     return $combined_to;
+// }
