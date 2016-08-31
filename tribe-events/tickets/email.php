@@ -225,7 +225,39 @@
 		<center>
 			<?php
 			do_action( 'tribe_tickets_ticket_email_top' );
+			?>
 
+			<table class="content" align="center" width="620" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" style="margin:0 auto; padding:0;<?php echo $break; ?>">
+				<tr>
+					<td align="center" valign="top" class="wrapper" width="620">
+						<table class="inner-wrapper" border="0" cellpadding="0" cellspacing="0" width="620" bgcolor="#f7f7f7" style="margin:0 auto !important; width:620px; padding:0;">
+							<tr>
+								<td valign="top" class="ticket-content" align="left" width="580" border="0" cellpadding="20" cellspacing="0" style="padding:20px;">
+									<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+										<tr>
+											<td valign="top" align="center" width="100%" style="padding: 0 !important; margin:0 !important;">
+												<h2 style="color:#0a0a0e; margin:0 0 10px 0 !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-style:normal; font-weight:700; font-size:28px; letter-spacing:normal; text-align:left;line-height: 100%;">
+													<span style="color:#0a0a0e !important">
+														Thanks for your order!
+													</span>
+												</h2>
+												<p style="text-align:left;">
+													You have purchased
+													<?php echo count( $tickets ); ?>
+													items from
+													<a href="http://buntport.com">Buntport Theater</a>...
+												</p>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+
+			<?
 			$count = 0;
 			$break = '';
 			foreach ( $tickets as $ticket ) {
@@ -286,29 +318,13 @@
 				}
 
 				?>
+				<hr style="border: 0;" />
 				<table class="content" align="center" width="620" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" style="margin:0 auto; padding:0;<?php echo $break; ?>">
 					<tr>
 						<td align="center" valign="top" class="wrapper" width="620">
 							<table class="inner-wrapper" border="0" cellpadding="0" cellspacing="0" width="620" bgcolor="#f7f7f7" style="margin:0 auto !important; width:620px; padding:0;">
 								<tr>
 									<td valign="top" class="ticket-content" align="left" width="580" border="0" cellpadding="20" cellspacing="0" style="padding:20px; background:#f7f7f7;">
-										<?php
-										if ( ! empty( $header_img ) ) {
-											$header_width = esc_attr( $header_img[1] );
-											if ( $header_width > 580 ) {
-												$header_width = 580;
-											}
-											?>
-											<table border="0" cellpadding="0" cellspacing="0" width="100%">
-												<tr>
-													<td class="ticket-image" valign="top" align="left" width="100%" style="padding-bottom:15px !important;">
-														<img src="<?php echo esc_attr( $header_img[0] ); ?>" width="<?php echo esc_attr( $header_width ); ?>" alt="<?php echo esc_attr( $event->post_title ); ?>" style="border:0; outline:none; height:auto; max-width:100%; display:block;" />
-													</td>
-												</tr>
-											</table>
-											<?php
-										}
-										?>
 										<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
 											<tr>
 												<td valign="top" align="center" width="100%" style="padding: 0 !important; margin:0 !important;">
@@ -323,115 +339,64 @@
 												</td>
 											</tr>
 										</table>
-										<table class="whiteSpace" border="0" cellpadding="0" cellspacing="0" width="100%">
-											<tr>
-												<td valign="top" align="left" width="100%" height="30" style="height:30px; background:#f7f7f7; padding: 0 !important; margin:0 !important;">
-													<div style="margin:0; height:30px;"></div>
-												</td>
-											</tr>
-										</table>
-										<table class="ticket-details" border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
-											<tr>
-												<td class="ticket-details" valign="top" align="left" width="120" style="padding: 0; width:120px; margin:0 !important;">
-													<h6 style="color:#909090 !important; margin:0 0 10px 0; font-family: 'Helvetica Neue', Helvetica, sans-serif; text-transform:uppercase; font-size:13px; font-weight:700 !important;"><?php esc_html_e( 'Ticket Type', 'event-tickets' ); ?></h6>
-													<span style="color:#0a0a0e !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:15px;"><?php echo $ticket['ticket_name']; ?></span>
-												</td>
-											</tr>
-										</table>
-										<table class="whiteSpace" border="0" cellpadding="0" cellspacing="0" width="100%">
-											<tr>
-												<td valign="top" align="left" width="100%" height="30" style="height:30px; background:#f7f7f7; padding: 0 !important; margin:0 !important;">
-													<div style="margin:0; height:30px;"></div>
-												</td>
-											</tr>
-										</table>
-										<table class="ticket-details" border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
-											<tr>
-												<td class="ticket-details" valign="top" align="left" width="100" style="padding: 0; width:100%; margin:0 !important;">
-													<h6 style="color:#909090 !important; margin:0 0 10px 0; font-family: 'Helvetica Neue', Helvetica, sans-serif; text-transform:uppercase; font-size:13px; font-weight:700 !important;"><?php esc_html_e( 'Ticket Description', 'event-tickets' ); ?></h6>
-													<span style="color:#0a0a0e !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:15px;"><?php echo  $ticket_description; ?></span>
-												</td>
-											</tr>
-										</table>
-										<table class="whiteSpace" border="0" cellpadding="0" cellspacing="0" width="100%">
-											<tr>
-												<td valign="top" align="left" width="100%" height="30" style="height:30px; background:#f7f7f7; padding: 0 !important; margin:0 !important;">
-													<div style="margin:0; height:30px;"></div>
-												</td>
-											</tr>
-										</table>
-										<?php
-										if ( $venue_name || ! empty( $organizers ) ) {
-											?>
-											<table class="ticket-venue" border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+										<?php if ( $ticket_description ): ?>
+											<table class="whiteSpace" border="0" cellpadding="0" cellspacing="0" width="100%">
 												<tr>
-													<?php
-													if ( $venue_name ) {
-														?>
-														<td class="ticket-venue" valign="top" align="left" width="300" style="padding: 0 !important; width:300px; margin:0 !important;">
-															<h6 style="color:#909090 !important; margin:0 0 4px 0; font-family: 'Helvetica Neue', Helvetica, sans-serif; text-transform:uppercase; font-size:13px; font-weight:700 !important;"><?php esc_html_e( $venue_label, 'event-tickets' ); ?></h6>
-															<table class="venue-details" border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
-																<tr>
-																	<td class="ticket-venue-child" valign="top" align="left" width="130" style="padding: 0 10px 0 0 !important; width:130px; margin:0 !important;">
-																		<span style="color:#0a0a0e !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:13px; display:block; margin-bottom:5px;"><?php echo $venue_name; ?></span>
-																		<a style="color:#006caa !important; display:block; margin:0; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:13px; text-decoration:underline;">
-																			<?php echo $venue_address; ?><br />
-																			<?php echo $venue_city; ?>
-																		</a>
-																	</td>
-																	<td class="ticket-venue-child" valign="top" align="left" width="100" style="padding: 0 !important; width:140px; margin:0 !important;">
-																		<span style="color:#0a0a0e !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:13px; display:block; margin-bottom:5px;"><?php echo $venue_phone; ?></span>
-																		<?php if ( ! empty( $venue_web ) ): ?>
-																			<a href="<?php echo esc_url( $venue_web ) ?>" style="color:#006caa !important; display:block; margin:0; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:13px; text-decoration:underline;"><?php echo $venue_web; ?></a>
-																		<?php endif ?>
-																	</td>
-																</tr>
-															</table>
-														</td>
-														<?php
-													}//end if
-
-													if ( ! empty( $organizers ) ) {
-														?>
-														<td class="ticket-organizer" valign="top" align="left" width="140" style="padding: 0 !important; width:140px; margin:0 !important;">
-															<h6 style="color:#909090 !important; margin:0 0 4px 0; font-family: 'Helvetica Neue', Helvetica, sans-serif; text-transform:uppercase; font-size:13px; font-weight:700 !important;"><?php echo tribe_get_organizer_label( count( $organizers ) < 2 ); ?></h6>
-															<?php foreach ( $organizers as $organizer_id ) { ?>
-																<span
-																	style="color:#0a0a0e !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:15px; display:block; padding-bottom:5px;"><?php echo tribe_get_organizer( $organizer_id ); ?></span>
-															<?php } ?>
-														</td>
-														<?php
-													}//end if
-													?>
+													<td valign="top" align="left" width="100%" height="30" style="height:30px; background:#f7f7f7; padding: 0 !important; margin:0 !important;">
+														<div style="margin:0; height:30px;"></div>
+													</td>
 												</tr>
 											</table>
-											<?php
-										}//end if
-										?>
-										<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
-											<tr>
-												<td class="ticket-footer" valign="top" align="left" width="100%" style="padding: 0 !important; width:100%; margin:0 !important;">
-													<a href="<?php echo esc_url( home_url() ); ?>" style="color:#006caa !important; display:block; margin-top:20px; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:13px; text-decoration:underline;"><?php echo home_url(); ?></a>
-												</td>
-											</tr>
-										</table>
+											<table class="ticket-details" border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+												<tr>
+													<td class="ticket-details" valign="top" align="left" width="100" style="padding: 0; width:100%; margin:0 !important;">
+														<h6 style="color:#909090 !important; margin:0 0 10px 0; font-family: 'Helvetica Neue', Helvetica, sans-serif; text-transform:uppercase; font-size:13px; font-weight:700 !important;"><?php esc_html_e( 'Ticket Description', 'event-tickets' ); ?></h6>
+														<span style="color:#0a0a0e !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:15px;"><?php echo  $ticket_description; ?></span>
+													</td>
+												</tr>
+											</table>
+										<?php endif; ?>
 									</td>
 								</tr>
 							</table>
 							<?php do_action( 'tribe_tickets_ticket_email_ticket_bottom', $ticket ); ?>
-							<table class="whiteSpace" border="0" cellpadding="0" cellspacing="0" width="100%">
-								<tr>
-									<td valign="top" align="left" width="100%" height="100" style="height:100px; background:#ffffff; padding: 0 !important; margin:0 !important;">
-										<div style="margin:0; height:100px;"></div>
-									</td>
-								</tr>
-							</table>
 						</td>
 					</tr>
 				</table>
 				<?php
 			}//end foreach
+			?>
 
+			<hr style="border: 0;" />
+			<table class="content" align="center" width="620" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" style="margin:0 auto; padding:0;<?php echo $break; ?>">
+				<tr>
+					<td align="center" valign="top" class="wrapper" width="620">
+						<table class="inner-wrapper" border="0" cellpadding="0" cellspacing="0" width="620" bgcolor="#f7f7f7" style="margin:0 auto !important; width:620px; padding:0;">
+							<tr>
+								<td valign="top" class="ticket-content" align="left" width="580" border="0" cellpadding="20" cellspacing="0" style="padding:20px;">
+									<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+										<tr>
+											<td valign="top" align="center" width="100%" style="padding: 0 !important; margin:0 !important;">
+												<p style="text-align:left;">
+												  Our box office opens a half hour before show time.
+												  Seating is general admission.
+												  Your reservation will be under your name at the box office,
+												  so there is no need to print this email.
+												  We will hold reservations until 5 minutes before curtain,
+												  but we will then make them available to standby customers.
+												  Call 720-946-1388 if you have any questions.
+												</p>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+
+			<?php
 			do_action( 'tribe_tickets_ticket_email_bottom' );
 			?>
 		</center>

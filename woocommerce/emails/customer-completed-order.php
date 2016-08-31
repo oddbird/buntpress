@@ -38,7 +38,7 @@ do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_tex
 
 <p>
   Thanks for ordering from
-  <a href="http://buntport.com"><? echo get_option( 'blogname' ) ?></a>
+  <a href="http://buntport.com">Buntport Theater</a>
   Our box office opens a half hour before show time.
   Seating is general admission.
   We will hold reservations until 5 minutes before curtain,
