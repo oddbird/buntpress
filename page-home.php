@@ -94,7 +94,8 @@ get_header(); ?>
       $post_id = get_the_ID();
       $image_size = 'medium';
       $image_url = ( has_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id($post_id), $image_size ) : null;
-      $fields = tribe_get_custom_fields();
+      $calendar_url = $tickets . tribe_get_start_date ( $post_id, false, 'Y-m', null ) . '/';
+      $ticket_url = get_field( 'one_off', $post_id ) ? tribe_get_event_link() : $calendar_url;
     ?>
     <article data-feature="<?php echo $slug ?>" class="clear">
       <h2 class="category-title">
@@ -112,7 +113,7 @@ get_header(); ?>
         <div data-feature-image="<?php echo $image_size ?>" style="background-image: url(<?php echo $image_url[0]; ?>);"></div>
       <?php endif; ?>
 
-      <a href="<?php echo $tickets . tribe_get_start_date ( $post_id, false, 'Y-m', null ) . '/'; ?>" class="ticket-link">
+      <a href="<?php echo $ticket_url; ?>" class="ticket-link">
         <span>Tickets</span>
       </a>
 
