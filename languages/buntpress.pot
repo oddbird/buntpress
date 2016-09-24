@@ -15,8 +15,7 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
-
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: 404.php:18
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
@@ -64,24 +63,20 @@ msgstr ""
 msgid "Optional Mobile Menu"
 msgstr ""
 
-#: functions.php:99
-msgid "Sidebar 1"
+#: functions.php:110
+msgid "Homepage"
 msgstr ""
 
-#: functions.php:100
-msgid "Sidebar 2"
+#: functions.php:111
+msgid "Footer Social"
 msgstr ""
 
-#: functions.php:101
-msgid "Sidebar 3"
+#: functions.php:112
+msgid "Footer Sign Up"
 msgstr ""
 
-#: functions.php:109
+#: functions.php:120
 msgid "Widget area for %s"
-msgstr ""
-
-#: header.php:29
-msgid "Skip to content"
 msgstr ""
 
 #: inc/customizer.php:22
@@ -105,17 +100,17 @@ msgid "Copyright Text"
 msgstr ""
 
 #: inc/customizer.php:71
-msgid "The copyright text will be displayed beneath the menu in the footer."
+msgid "The copyright text will be displayed in the footer."
 msgstr ""
 
 #: inc/scripts.php:22
-msgctxt "Roboto font: on or off"
+msgctxt "Catamaran font: on or off"
 msgid "on"
 msgstr ""
 
 #: inc/scripts.php:23
 msgctxt "Open Sans font: on or off"
-msgid "on"
+msgid "off"
 msgstr ""
 
 #: inc/template-tags.php:28
@@ -152,7 +147,7 @@ msgstr ""
 msgid "% Comments"
 msgstr ""
 
-#: inc/template-tags.php:71, template-parts/content-page.php:33
+#: inc/template-tags.php:71, template-parts/content-page.php:46
 msgid "Edit %s"
 msgstr ""
 
@@ -164,24 +159,20 @@ msgstr ""
 msgid "Please define an SVG icon filename."
 msgstr ""
 
-#: inc/template-tags.php:358
+#: inc/template-tags.php:376
 msgid "Share This"
 msgstr ""
 
-#: inc/template-tags.php:362, inc/template-tags.php:363
+#: inc/template-tags.php:380, inc/template-tags.php:381
 msgid "Share on Twitter"
 msgstr ""
 
-#: inc/template-tags.php:368, inc/template-tags.php:369
+#: inc/template-tags.php:386, inc/template-tags.php:387
 msgid "Share on Facebook"
 msgstr ""
 
-#: inc/template-tags.php:374, inc/template-tags.php:375
+#: inc/template-tags.php:392, inc/template-tags.php:393
 msgid "Share on LinkedIn"
-msgstr ""
-
-#: inc/template-tags.php:401
-msgid "Close menu"
 msgstr ""
 
 #: search.php:20
@@ -217,10 +208,6 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:22, template-parts/content.php:42
+#: template-parts/content-page.php:35, template-parts/content.php:39
 msgid "Pages:"
-msgstr ""
-
-#: template-parts/content.php:33
-msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""

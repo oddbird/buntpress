@@ -20,25 +20,29 @@
 }
 
 
-[data-feature='special-events'] {
+[data-feature-section='special-events'] {
   padding: 2rem 0;
+
+  [data-feature] {
+    margin-bottom: 2rem;
+  }
 }
 
 
-[data-feature='third-tuesdays'],
-[data-feature='all-ages'] {
+[data-feature-section='third-tuesdays'],
+[data-feature-section='all-ages'] {
   margin: 0 negative('gutter');
   padding: 2rem size('gutter');
 }
 
 
-[data-feature='third-tuesdays'] {
+[data-feature-section='third-tuesdays'] {
   background-color: rgb(251, 244, 238);
   border: 2px dashed color('border');
   border-width: 2px 0;
 }
 
-[data-feature='all-ages'] {
+[data-feature-section='all-ages'] {
   background-color: rgb(245, 251, 238);
   border-bottom: 2px dashed color('border');
 }

@@ -81,8 +81,10 @@ get_header(); ?>
   $slugs = array('third-tuesdays', 'all-ages', 'special-events');
   foreach( $slugs as $slug ) :
 
+    $per_page = ( $slug == 'special-events' ) ? 3 : 1;
+
     $events = tribe_get_events( array(
-        'posts_per_page' => 1,
+        'posts_per_page' => $per_page,
         'start_date' => date( 'Y-m-d H:i:s' ),
         'tax_query'=> array(
           array(
@@ -92,15 +94,8 @@ get_header(); ?>
           )
         )
     ) );
-
-    foreach ( $events as $post ) : setup_postdata( $post );
-      $post_id = get_the_ID();
-      $image_size = 'medium';
-      $image_url = ( has_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id($post_id), $image_size ) : null;
-      $calendar_url = $tickets . tribe_get_start_date ( $post_id, false, 'Y-m', null ) . '/';
-      $ticket_url = get_field( 'one_off', $post_id ) ? tribe_get_event_link() : $calendar_url;
     ?>
-    <article data-feature="<?php echo $slug ?>" class="clear">
+    <section data-feature-section="<?php echo $slug ?>" >
       <h2 class="category-title">
         <?php if ( $slug == 'third-tuesdays' ): ?>
           Third Tuesdays
@@ -110,8 +105,15 @@ get_header(); ?>
           Guests & Special Events
         <?php endif; ?>
       </h2>
-
-
+    <?php
+    foreach ( $events as $post ) : setup_postdata( $post );
+      $post_id = get_the_ID();
+      $image_size = 'medium';
+      $image_url = ( has_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id($post_id), $image_size ) : null;
+      $calendar_url = $tickets . tribe_get_start_date ( $post_id, false, 'Y-m', null ) . '/';
+      $ticket_url = get_field( 'one_off', $post_id ) ? tribe_get_event_link() : $calendar_url;
+    ?>
+    <article data-feature="<?php echo $slug ?>" class="clear">
       <?php if ( $image_url ): ?>
         <div data-feature-image="<?php echo $image_size ?>" style="background-image: url(<?php echo $image_url[0]; ?>);"></div>
       <?php endif; ?>
@@ -138,7 +140,9 @@ get_header(); ?>
     </article>
   <?php
     endforeach;
-
+  ?>
+  </section>
+  <?php
   endforeach;
   wp_reset_postdata();
   ?>
