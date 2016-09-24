@@ -209,6 +209,12 @@ function tribe_event_tickets_rsvp_success_script() {
 }
 
 
+add_filter( 'wootickets-tickets-email-enabled', 'no_wooticket_emails' );
+function no_wooticket_emails() {
+  return 'no';
+}
+
+
 // add_filter( 'tribe_rsvp_email_recipient', 'tribe_add_admin_email_to_rsvp_email_recipient' );
 // function tribe_add_admin_email_to_rsvp_email_recipient( $to ) {
 
