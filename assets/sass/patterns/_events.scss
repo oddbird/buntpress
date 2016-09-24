@@ -6,40 +6,31 @@
   text-align: left !important;
 }
 
+[data-feature-section] {
+  @include clearfix;
+  border-bottom: 2px dashed color('border');
+  margin: 0 negative('gutter');
+  padding: 0 size('gutter');
+
+  & + & {
+    padding-top: size('gutter');
+  }
+}
+
+.category-title {
+  @include font-family('title');
+  @include font-size('larger');
+  font-weight: bold;
+  margin-bottom: size('gutter');
+}
+
 [data-feature] {
   @include clearfix;
+  margin-bottom: size('gutter');
 }
-
-
-[data-feature='main-stage'] {
-  padding: 2rem 0;
-
-  &:first-child {
-    padding-top: 0;
-  }
-}
-
-
-[data-feature-section='special-events'] {
-  padding: 2rem 0;
-
-  [data-feature] {
-    margin-bottom: 2rem;
-  }
-}
-
-
-[data-feature-section='third-tuesdays'],
-[data-feature-section='all-ages'] {
-  margin: 0 negative('gutter');
-  padding: 2rem size('gutter');
-}
-
 
 [data-feature-section='third-tuesdays'] {
   background-color: rgb(251, 244, 238);
-  border: 2px dashed color('border');
-  border-width: 2px 0;
 }
 
 [data-feature-section='all-ages'] {
