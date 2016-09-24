@@ -25,6 +25,7 @@ get_header(); ?>
   );
 
   $mainstage = array_reverse ( query_posts($season) );
+  $i = 0;
 
   foreach ($mainstage as $index=>$post) : setup_postdata();
     $tickets = get_site_url() . '/shows/';
@@ -33,12 +34,14 @@ get_header(); ?>
     $start_date = get_field( 'start_date', $post_id );
     $end_date = get_field( 'end_date', $post_id );
     $end_date = ( $end_date ) ? $end_date : $start_date;
-    $image_size = ( $index == 0 ) ? 'large' : 'medium';
-    $image_url = ( has_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id($post_id), $image_size ) : null;
 
-    if ( $end_date > $today ):
+    if ( $end_date >= $today ):
       $start_date = new DateTime( $start_date );
       $end_date = new DateTime( $end_date );
+
+      $i = ++$i;
+      $image_size = ( $i == 1 ) ? 'large' : 'medium';
+      $image_url = ( has_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id($post_id), $image_size ) : null;
   ?>
     <article data-feature="main-stage" class="clear">
       <?php if ( $image_url ): ?>
