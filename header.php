@@ -30,8 +30,8 @@
   <span class="svg-defs"><?php buntpress_include_svg_icons(); ?></span>
 
   <aside class="site-messages">
-    <a href="<?php echo get_site_url() ?>/product/season-subscription/" class="message">
-      Subscribe to Season #16 »
+    <a href="<?php echo get_site_url() ?>/donate/" class="message">
+      Support Buntport »
     </a>
   </aside>
 
