@@ -80,15 +80,18 @@ get_header(); ?>
       $image_url = ( has_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id($post_id), $image_size ) : null;
       $ticket_url = get_field( 'ticket_url', $post_id );
       $ticket_link = ( $ticket_url ) ? $ticket_url : get_permalink();
+      $hide_tickets = get_field( 'hide_tickets', $post_id );
   ?>
     <article class="clear" data-feature="<?php echo $image_size ?>">
       <?php if ( $image_url ): ?>
         <div data-feature-image="<?php echo $image_size ?>" style="background-image: url(<?php echo $image_url[0]; ?>);"></div>
       <?php endif; ?>
 
-      <a href="<?php echo esc_url( $ticket_link ); ?>" class="ticket-link">
-        <span>Tickets</span>
-      </a>
+      <?php if ( ! $hide_tickets ): ?>
+        <a href="<?php echo esc_url( $ticket_link ); ?>" class="ticket-link">
+          <span>Tickets</span>
+        </a>
+      <?php endif; ?>
 
       <h2 class="show-title">
         <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
