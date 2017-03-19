@@ -65,7 +65,7 @@ get_header(); ?>
 
   // LOOP OF EVENT POSTS
   foreach ($posts as $index => $post) :
-    setup_postdata();
+    setup_postdata($post);
     $post_id = get_the_ID();
     $start_date = get_field( 'start_date', $post_id );
     $end_date = get_field( 'end_date', $post_id );
