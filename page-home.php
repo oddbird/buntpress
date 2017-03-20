@@ -76,15 +76,16 @@ get_header(); ?>
       $end_date = new DateTime( $end_date );
       $i = ++$i;
 
-      $image_size = ( ( $type == 'feature' ) or ( ( $has_feature != true ) and ($type == 'main-stage') and ( $i == 1 ) ) ) ? 'large' : 'medium';
-      $image_url = ( has_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id($post_id), $image_size ) : null;
+      $image_size = ( ( $type == 'feature' ) or ( ( $has_feature != true ) and ($type == 'main-stage') and ( $i == 1 ) ) ) ? 'large' : 'thumbnail';
       $ticket_url = get_field( 'ticket_url', $post_id );
       $ticket_link = ( $ticket_url ) ? $ticket_url : get_permalink();
       $hide_tickets = get_field( 'hide_tickets', $post_id );
   ?>
     <article class="clear" data-feature="<?php echo $image_size ?>">
-      <?php if ( $image_url ): ?>
-        <div data-feature-image="<?php echo $image_size ?>" style="background-image: url(<?php echo $image_url[0]; ?>);"></div>
+      <?php if ( has_post_thumbnail() ): ?>
+        <div data-feature-image="<?php echo $image_size ?>"<?php if ( $image_size != 'large' ): ?> style="background-image: url(<?php echo get_the_post_thumbnail_url($post_id, 'medium'); ?>);"<?php endif; ?>>
+          <?php the_post_thumbnail($image_size, ['width' => '', 'height' => 'auto']) ?>
+        </div>
       <?php endif; ?>
 
       <?php if ( ! $hide_tickets ): ?>
@@ -93,25 +94,27 @@ get_header(); ?>
         </a>
       <?php endif; ?>
 
-      <h2 class="show-title">
-        <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
-          <?php the_title(); ?>
-        </a>
-      </h2>
+      <div class="show-details">
+        <h2 class="show-title">
+          <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+            <?php the_title(); ?>
+          </a>
+        </h2>
 
-      <div class="show-dates">
-        <?php
-          echo $start_date->format($date_format);
+        <div class="show-dates">
+          <?php
+            echo $start_date->format($date_format);
 
-          if ( $end_date != $start_date ) {
-            echo '—';
-            echo $end_date->format($date_format);
-          }
-        ?>
-      </div>
+            if ( $end_date != $start_date ) {
+              echo '—';
+              echo $end_date->format($date_format);
+            }
+          ?>
+        </div>
 
-      <div class="show-summary">
-        <?php the_content( '' ); ?>
+        <div class="show-summary">
+          <?php the_content( '' ); ?>
+        </div>
       </div>
     </article>
   <?php

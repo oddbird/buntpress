@@ -10,11 +10,10 @@
 ?>
 
 <article <?php post_class(); ?>>
-  <?php
-    $image_url = ( has_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' ) : null;
-    if ($image_url) :
-  ?>
-    <div data-feature-image="large" style="background-image: url(<?php echo $image_url[0]; ?>);"></div>
+  <?php if ( has_post_thumbnail() ) : ?>
+    <div data-feature-image="large">
+      <?php the_post_thumbnail('large', ['width' => '', 'height' => 'auto']) ?>
+    </div>
   <?php endif; ?>
 
   <header class="entry-header">
