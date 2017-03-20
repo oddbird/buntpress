@@ -31,8 +31,6 @@
       the_content();
     ?>
 
-    <?php buntpress_show_review(); ?>
-
     <?php
       wp_link_pages( array(
         'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'buntpress' ),

@@ -7,7 +7,6 @@
 }
 
 [data-feature-section] {
-  @include clearfix;
   border-bottom: 2px dashed color('border');
   margin: 0 negative('gutter');
   padding: 0 size('gutter');
