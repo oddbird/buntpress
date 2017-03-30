@@ -29,30 +29,8 @@
 }
 
 [data-feature='thumbnail'] {
-  [data-feature-image] {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  .wp-post-image {
-    display: none;
-  }
-
   @include above('small-screen') {
     display: flex;
-
-    [data-feature-image] {
-      background-position: 100vw;
-      flex: 0 0 auto;
-      margin-right: 1.5rem;
-      order: 0;
-      padding: 0;
-    }
-
-    .wp-post-image {
-      display: block;
-    }
 
     .ticket-link {
       flex: 0 0 auto;
@@ -65,8 +43,6 @@
       order: 1;
     }
   }
-
-
 }
 
 [data-feature-section='third-tuesdays'] {
@@ -82,11 +58,36 @@
   margin: 0 -4vw;
   overflow: hidden;
 
-  img {
+  .wp-post-image {
     width: 100%;
     height: auto;
   }
 }
+
+[data-feature-image='thumbnail'] {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: percentage(9/16);
+
+  .wp-post-image {
+    display: none;
+  }
+
+  @include above('small-screen') {
+    background-position: 100vw;
+    flex: 0 0 auto;
+    margin-right: 1.5rem;
+    order: 0;
+    padding: 0;
+
+    .wp-post-image {
+      display: block;
+    }
+  }
+}
+
+
 
 .ticket-link {
   #{$link} {

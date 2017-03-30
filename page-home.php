@@ -83,7 +83,7 @@ get_header(); ?>
   ?>
     <article class="clear" data-feature="<?php echo $image_size ?>">
       <?php if ( has_post_thumbnail() ): ?>
-        <div data-feature-image="<?php echo $image_size ?>"<?php if ( $image_size != 'large' ): ?> style="background-image: url(<?php echo get_the_post_thumbnail_url($post_id, 'medium'); ?>);"<?php endif; ?>>
+        <div data-feature-image="<?php echo $image_size ?>"<?php if ( $image_size != 'large' ): ?> style="background-image: url(<?php echo get_the_post_thumbnail_url($post_id); ?>);"<?php endif; ?>>
           <?php the_post_thumbnail($image_size, ['width' => '', 'height' => 'auto']) ?>
         </div>
       <?php endif; ?>
