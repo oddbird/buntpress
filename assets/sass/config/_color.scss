@@ -2,15 +2,6 @@
 // ===================
 
 
-
-// Dependencies
-// ------------
-
-@import '../../../node_modules/mathsass/dist/math';
-@import '../../../node_modules/accoutrement-color/sass/color';
-
-
-
 // Brand Colors
 // ------------
 /// hello, brand colors!
@@ -19,6 +10,7 @@ $brand-colors: (
   'brand-pink': #d83a5d,
 );
 
+@include herman-add-colors('brand-colors', $brand-colors);
 
 
 // UI Colors
@@ -30,6 +22,7 @@ $ui-colors: (
   'contrast-dark': #23090f,
 );
 
+@include herman-add-colors('ui-colors', $ui-colors);
 
 
 // Theme Colors
@@ -47,15 +40,4 @@ $theme-colors: (
   'border': 'action' ('tint': 75%),
 );
 
-
-
-// Color Palette
-// -------------
-
-@include set-colors(
-  (
-    'brand-colors': $brand-colors,
-    'ui-colors': $ui-colors,
-    'theme-colors': $theme-colors,
-  )
-);
+@include herman-add-colors('theme-colors', $theme-colors);

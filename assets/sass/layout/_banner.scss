@@ -4,6 +4,7 @@
 
 
 [data-region='banner'] {
+  border-bottom: 2px dashed color('border');
   margin: size('gutter') auto 0;
   position: relative;
   z-index: 1;

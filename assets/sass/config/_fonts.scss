@@ -1,17 +1,7 @@
 // Fonts Config
 // ============
 
-
-
-// Dependencies
-// ------------
-
-@import '../../../node_modules/accoutrement-type/sass/type';
-
-
-
 $font-path: 'assets/fonts/';
-
 
 
 // Title Font
@@ -25,6 +15,7 @@ $title-font: (
   'bold': 'amatic-bold-webfont',
 );
 
+@include herman-add-font('title', $title-font);
 
 
 // Body Font
@@ -36,6 +27,7 @@ $body-font: (
   'stack': ('Helvetica Neue', Helvetica, Arial, sans-serif),
 );
 
+@include herman-add-font('body', $body-font);
 
 
 // Code Font
@@ -47,15 +39,4 @@ $code-font: (
   'stack': (Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace),
 );
 
-
-
-// Font Palette
-// ------------
-
-@include set-fonts(
-  (
-    'title': $title-font,
-    'body': $body-font,
-    'code': $code-font,
-  )
-);
+@include herman-add-font('code', $code-font);

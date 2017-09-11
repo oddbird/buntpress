@@ -38,6 +38,7 @@ get_header(); ?>
 
   // LOOP OF CATEGORIES
   foreach( $categories as $type => $count ) :
+    $category_title = $category_names[$type];
 
     $season = array(
       'numberposts' => $count,
@@ -47,40 +48,42 @@ get_header(); ?>
     $posts = array_reverse ( query_posts($season) );
     $i = 0;
 
+    // IF POSTS
     if ( count($posts) > 0 ) :
 
       $has_feature = ( $type == 'feature' ) ? true : $has_feature;
-  ?>
-  <section data-feature-section="<?php echo $type ?>" >
-    <?php
-      $category_title = $category_names[$type];
 
-      if ( $category_title ):
+    // LOOP OF EVENT POSTS
+    foreach ($posts as $index => $post) :
+      setup_postdata($post);
+      $post_id = get_the_ID();
+      $start_date = get_field( 'start_date', $post_id );
+      $end_date = get_field( 'end_date', $post_id );
+      $end_date = ( $end_date ) ? $end_date : $start_date;
+
+      // IF CURRENT
+      if ( ( $end_date >= $today ) or ($type == 'feature') ) :
+        $start_date = new DateTime( $start_date );
+        $end_date = new DateTime( $end_date );
+        $i = ++$i;
+
+        $image_size = ( ( $type == 'feature' ) or ( ( $has_feature != true ) and ($type == 'main-stage') and ( $i == 1 ) ) ) ? 'large' : 'thumbnail';
+        $ticket_url = get_field( 'ticket_url', $post_id );
+        $ticket_link = ( $ticket_url ) ? $ticket_url : get_permalink();
+        $hide_tickets = get_field( 'hide_tickets', $post_id );
+
+        // IF FIRST LIVE POST
+        if ($i == 1) :
     ?>
-      <h2 class="category-title">
-        <?php echo $category_title ?>
-      </h2>
-    <?php endif; ?>
-  <?php
+      <section data-feature-section="<?php echo $type ?>" >
+        <?php if ( $category_title ): ?>
+          <h2 class="category-title">
+            <?php echo $category_title ?>
+          </h2>
+        <?php endif; ?>
 
-  // LOOP OF EVENT POSTS
-  foreach ($posts as $index => $post) :
-    setup_postdata($post);
-    $post_id = get_the_ID();
-    $start_date = get_field( 'start_date', $post_id );
-    $end_date = get_field( 'end_date', $post_id );
-    $end_date = ( $end_date ) ? $end_date : $start_date;
+    <?php endif; // END FIRST LIVE POST ?>
 
-    if ( ( $end_date >= $today ) or ($type == 'feature') ) :
-      $start_date = new DateTime( $start_date );
-      $end_date = new DateTime( $end_date );
-      $i = ++$i;
-
-      $image_size = ( ( $type == 'feature' ) or ( ( $has_feature != true ) and ($type == 'main-stage') and ( $i == 1 ) ) ) ? 'large' : 'thumbnail';
-      $ticket_url = get_field( 'ticket_url', $post_id );
-      $ticket_link = ( $ticket_url ) ? $ticket_url : get_permalink();
-      $hide_tickets = get_field( 'hide_tickets', $post_id );
-  ?>
     <article class="clear" data-feature="<?php echo $image_size ?>">
       <?php if ( has_post_thumbnail() ): ?>
         <div data-feature-image="<?php echo $image_size ?>"<?php if ( $image_size != 'large' ): ?> style="background-image: url(<?php echo get_the_post_thumbnail_url($post_id); ?>);"<?php endif; ?>>
@@ -118,14 +121,17 @@ get_header(); ?>
       </div>
     </article>
   <?php
-    endif;
+    endif; // END CURRENT
     wp_reset_postdata();
-    endforeach;
+    endforeach; // EVENT POSTS
+
+    if ($i > 0) : // IF LIVE POSTS
   ?>
     </section>
   <?php
-  endif;
-  endforeach;
+    endif; // LIVE POSTS
+  endif; // POSTS
+  endforeach; // CATEGORIES
   ?>
 
 <?php get_footer(); ?>

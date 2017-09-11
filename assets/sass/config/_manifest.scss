@@ -1,7 +1,20 @@
 // Config Manifest
 // ===============
 
+@import '../../../node_modules/mathsass/dist/math';
+@import '../../../node_modules/accoutrement-color/sass/color';
+@import '../../../node_modules/accoutrement-type/sass/type';
+@import '../../../node_modules/accoutrement-scale/sass/scale';
 @import '../../../node_modules/sassdoc-theme-herman/scss/utilities';
 @import 'color';
 @import 'fonts';
 @import 'scale';
+
+
+@mixin clearfix {
+  &:after {
+    clear: both;
+    content: ' ';
+    display: table;
+  }
+}

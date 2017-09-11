@@ -7,11 +7,12 @@
 }
 
 [data-feature-section] {
-  border-bottom: 2px dashed color('border');
+  @include clearfix;
   margin: 0 negative('gutter');
-  padding: 0 size('gutter');
+  padding: size('gutter') size('gutter') 0;
 
   & + & {
+    border-top: 2px dashed color('border');
     padding-top: size('gutter') * 2;
   }
 }

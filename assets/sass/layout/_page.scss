@@ -9,5 +9,5 @@
 }
 
 [data-region='main'] {
-  padding-bottom: size('gutter') * 3;
+  padding: 0 size('gutter') size('gutter') * 3;
 }
