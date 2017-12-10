@@ -1,0 +1,25 @@
+// Type
+// ====
+
+
+// Alignment
+// ---------
+
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: size('gutter');
+}
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: size('gutter');
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
