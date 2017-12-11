@@ -5,6 +5,12 @@
 // Alignment
 // ---------
 
+.alignleft,
+.alignright,
+.aligncenter {
+  margin-bottom: size('gutter');
+}
+
 .alignleft {
   display: inline;
   float: left;
