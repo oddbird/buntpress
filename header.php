@@ -31,7 +31,7 @@
 
   <aside class="site-messages">
     <a href="<?php echo get_site_url() ?>/donate/" class="message">
-      Support Buntport »
+      <?php buntpress_do_donate_text(); ?>
     </a>
   </aside>
 

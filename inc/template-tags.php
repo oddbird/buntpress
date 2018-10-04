@@ -342,6 +342,24 @@ function buntpress_do_copyright_text() {
 
 
 /**
+ * Echo the donate text saved in the Customizer.
+ */
+function buntpress_do_donate_text() {
+
+  // Grab our customizer settings.
+  $donate_text = get_theme_mod( 'buntpress_donate_text' );
+
+  // Stop if there's nothing to display.
+  if ( ! $donate_text ) {
+    return false;
+  }
+
+  // Echo the text.
+  echo wp_kses_post( $donate_text );
+}
+
+
+/**
  * Echo the customizer social icons
  */
 function buntpress_show_social_links() {

@@ -74,6 +74,33 @@ function buntpress_customize_register( $wp_customize ) {
             'sanitize'    => 'html'
         )
     );
+
+    // Add our Banner Customization section section.
+    $wp_customize->add_section(
+        'buntpress_banner_section',
+        array(
+            'title'    => esc_html__( 'Banner Customization', 'buntpress' ),
+            'priority' => 90,
+        )
+    );
+
+    // Add our donate text field.
+    $wp_customize->add_setting(
+        'buntpress_donate_text',
+        array(
+            'default' => ''
+        )
+    );
+    $wp_customize->add_control(
+        'buntpress_donate_text',
+        array(
+            'label'       => esc_html__( 'Donate Text', 'buntpress' ),
+            'description' => esc_html__( 'The donate text will be displayed in a banner at the top of the page.', 'buntpress' ),
+            'section'     => 'buntpress_banner_section',
+            'type'        => 'text',
+            'sanitize'    => 'html'
+        )
+    );
 }
 add_action( 'customize_register', 'buntpress_customize_register' );
 
