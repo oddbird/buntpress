@@ -342,20 +342,21 @@ function buntpress_do_copyright_text() {
 
 
 /**
- * Echo the donate text saved in the Customizer.
+ * Echo the banner text & link saved in the Customizer.
  */
-function buntpress_do_donate_text() {
+function buntpress_do_banner_text() {
 
   // Grab our customizer settings.
-  $donate_text = get_theme_mod( 'buntpress_donate_text' );
+  $banner_text = get_theme_mod( 'buntpress_banner_text' );
+  $banner_link = get_theme_mod( 'buntpress_banner_link' );
 
   // Stop if there's nothing to display.
-  if ( ! $donate_text ) {
+  if ( ! $banner_text ) {
     return false;
   }
 
-  // Echo the text.
-  echo wp_kses_post( $donate_text );
+  // Echo the text
+  echo '<a href="' . wp_kses_post( $banner_link ) . '" class="message">' . wp_kses_post( $banner_text ) . '</a>';
 }
 
 

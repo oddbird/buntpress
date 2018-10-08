@@ -86,16 +86,34 @@ function buntpress_customize_register( $wp_customize ) {
 
     // Add our donate text field.
     $wp_customize->add_setting(
-        'buntpress_donate_text',
+        'buntpress_banner_text',
         array(
-            'default' => ''
+            'default' => 'Donate to Support Buntport »'
         )
     );
     $wp_customize->add_control(
-        'buntpress_donate_text',
+        'buntpress_banner_text',
         array(
-            'label'       => esc_html__( 'Donate Text', 'buntpress' ),
-            'description' => esc_html__( 'The donate text will be displayed in a banner at the top of the page.', 'buntpress' ),
+            'label'       => esc_html__( 'Banner Text', 'buntpress' ),
+            'description' => esc_html__( 'The banner text will be displayed in a banner at the top of the page.', 'buntpress' ),
+            'section'     => 'buntpress_banner_section',
+            'type'        => 'text',
+            'sanitize'    => 'html'
+        )
+    );
+
+    // Add our donate text field.
+    $wp_customize->add_setting(
+        'buntpress_banner_link',
+        array(
+            'default' => 'https://buntport.com/donate/'
+        )
+    );
+    $wp_customize->add_control(
+        'buntpress_banner_link',
+        array(
+            'label'       => esc_html__( 'Banner Link', 'buntpress' ),
+            'description' => esc_html__( 'The banner link will be used as a target for the banner text.', 'buntpress' ),
             'section'     => 'buntpress_banner_section',
             'type'        => 'text',
             'sanitize'    => 'html'
