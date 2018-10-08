@@ -74,6 +74,51 @@ function buntpress_customize_register( $wp_customize ) {
             'sanitize'    => 'html'
         )
     );
+
+    // Add our Banner Customization section section.
+    $wp_customize->add_section(
+        'buntpress_banner_section',
+        array(
+            'title'    => esc_html__( 'Banner Customization', 'buntpress' ),
+            'priority' => 90,
+        )
+    );
+
+    // Add our donate text field.
+    $wp_customize->add_setting(
+        'buntpress_banner_text',
+        array(
+            'default' => 'Donate to Support Buntport »'
+        )
+    );
+    $wp_customize->add_control(
+        'buntpress_banner_text',
+        array(
+            'label'       => esc_html__( 'Banner Text', 'buntpress' ),
+            'description' => esc_html__( 'The banner text will be displayed in a banner at the top of the page.', 'buntpress' ),
+            'section'     => 'buntpress_banner_section',
+            'type'        => 'text',
+            'sanitize'    => 'html'
+        )
+    );
+
+    // Add our donate text field.
+    $wp_customize->add_setting(
+        'buntpress_banner_link',
+        array(
+            'default' => 'https://buntport.com/donate/'
+        )
+    );
+    $wp_customize->add_control(
+        'buntpress_banner_link',
+        array(
+            'label'       => esc_html__( 'Banner Link', 'buntpress' ),
+            'description' => esc_html__( 'The banner link will be used as a target for the banner text.', 'buntpress' ),
+            'section'     => 'buntpress_banner_section',
+            'type'        => 'text',
+            'sanitize'    => 'html'
+        )
+    );
 }
 add_action( 'customize_register', 'buntpress_customize_register' );
 

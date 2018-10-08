@@ -3,10 +3,12 @@
 
 $message-gradient:
   color('callout') 49.9%,
-  transparent 50%,
+  color('background') 50%,
 ;
 
 .site-messages {
+  background-color: color('callout');
+  padding: size('gutter');
   position: relative;
   text-align: center;
 
@@ -18,13 +20,5 @@ $message-gradient:
 
   @include above('small-screen') {
     @include font-size('large');
-  }
-}
-
-.message {
-  #{$link} {
-    background-color: color('callout');
-    display: block;
-    padding: size('gutter');
   }
 }

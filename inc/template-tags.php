@@ -342,6 +342,25 @@ function buntpress_do_copyright_text() {
 
 
 /**
+ * Echo the banner text & link saved in the Customizer.
+ */
+function buntpress_do_banner_text() {
+
+  // Grab our customizer settings.
+  $banner_text = get_theme_mod( 'buntpress_banner_text' );
+  $banner_link = get_theme_mod( 'buntpress_banner_link' );
+
+  // Stop if there's nothing to display.
+  if ( ! $banner_text ) {
+    return false;
+  }
+
+  // Echo the text
+  echo '<a href="' . wp_kses_post( $banner_link ) . '" class="message">' . wp_kses_post( $banner_text ) . '</a>';
+}
+
+
+/**
  * Echo the customizer social icons
  */
 function buntpress_show_social_links() {

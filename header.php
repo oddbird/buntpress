@@ -30,9 +30,7 @@
   <span class="svg-defs"><?php buntpress_include_svg_icons(); ?></span>
 
   <aside class="site-messages">
-    <a href="<?php echo get_site_url() ?>/donate/" class="message">
-      Support Buntport »
-    </a>
+    <?php buntpress_do_banner_text(); ?>
   </aside>
 
   <header data-region="banner">
