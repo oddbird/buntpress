@@ -209,11 +209,6 @@ function tribe_event_tickets_rsvp_success_script() {
 }
 
 
-add_filter( 'wootickets-tickets-email-enabled', 'no_wooticket_emails' );
-function no_wooticket_emails() {
-  return 'no';
-}
-
 add_filter( 'get_the_archive_title', function ( $title ) {
   if ( is_category() ) {
     $title = single_cat_title( '', false );
@@ -227,14 +222,8 @@ add_filter( 'get_the_archive_title', function ( $title ) {
 });
 
 
-// add_filter( 'tribe_rsvp_email_recipient', 'tribe_add_admin_email_to_rsvp_email_recipient' );
-// function tribe_add_admin_email_to_rsvp_email_recipient( $to ) {
+/* Disable tickets emails for Woo */
+add_filter( 'tribe_tickets_plus_email_enabled', '__return_false' );
 
-//     if ( ! is_string( $to ) ) {
-//         return $to;
-//     }
-
-//     $combined_to = $to . ', ' . get_bloginfo('admin_email');
-
-//     return $combined_to;
-// }
+/* Remove the message 'You'll receive your tickets in another email' from the Woo Order email */
+add_filter( 'wootickets_email_message', '__return_empty_string' );
