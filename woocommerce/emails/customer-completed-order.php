@@ -37,8 +37,6 @@ do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_tex
 ?>
 
 <p>
-Just kidding! You can just give us your name at the box office!</p>
-<p>
   Thanks for ordering from
   <a href="http://buntport.com">Buntport Theater</a>
   Our box office opens a half hour before show time.
