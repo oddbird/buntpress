@@ -72,6 +72,8 @@ get_header(); ?>
         $ticket_link = ( $ticket_url ) ? $ticket_url : get_permalink();
         $hide_tickets = get_field( 'hide_tickets', $post_id );
 
+        $display_date = get_field( 'display_date', $post_id );
+
         // IF FIRST LIVE POST
         if ($i == 1) :
     ?>
@@ -106,11 +108,15 @@ get_header(); ?>
 
         <div class="show-dates">
           <?php
-            echo $start_date->format($date_format);
+            if ($display_date) {
+              echo $display_date;
+            } else {
+              echo $start_date->format($date_format);
 
-            if ( $end_date != $start_date ) {
-              echo '—';
-              echo $end_date->format($date_format);
+              if ( $end_date != $start_date ) {
+                echo '—';
+                echo $end_date->format($date_format);
+              }
             }
           ?>
         </div>
