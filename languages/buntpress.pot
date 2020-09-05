@@ -1,4 +1,4 @@
-# Copyright (C) 2016 buntpress
+# Copyright (C) 2020 buntpress
 # This file is distributed under the same license as the buntpress package.
 msgid ""
 msgstr ""
@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
 "Last-Translator: John Doe <mail@buntport.com>\n"
 "Language-Team: Team <mail@buntport.com>\n"
 "X-Poedit-Basepath: ..\n"
@@ -16,6 +16,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: 404.php:18
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
@@ -103,6 +104,26 @@ msgstr ""
 msgid "The copyright text will be displayed in the footer."
 msgstr ""
 
+#: inc/customizer.php:82
+msgid "Banner Customization"
+msgstr ""
+
+#: inc/customizer.php:97
+msgid "Banner Text"
+msgstr ""
+
+#: inc/customizer.php:98
+msgid "The banner text will be displayed in a banner at the top of the page."
+msgstr ""
+
+#: inc/customizer.php:115
+msgid "Banner Link"
+msgstr ""
+
+#: inc/customizer.php:116
+msgid "The banner link will be used as a target for the banner text."
+msgstr ""
+
 #: inc/scripts.php:22
 msgctxt "Catamaran font: on or off"
 msgid "on"
@@ -147,7 +168,7 @@ msgstr ""
 msgid "% Comments"
 msgstr ""
 
-#: inc/template-tags.php:71, template-parts/content-page.php:46
+#: inc/template-tags.php:71, template-parts/content-page.php:45
 msgid "Edit %s"
 msgstr ""
 
@@ -159,19 +180,19 @@ msgstr ""
 msgid "Please define an SVG icon filename."
 msgstr ""
 
-#: inc/template-tags.php:376
+#: inc/template-tags.php:395
 msgid "Share This"
 msgstr ""
 
-#: inc/template-tags.php:380, inc/template-tags.php:381
+#: inc/template-tags.php:399, inc/template-tags.php:400
 msgid "Share on Twitter"
 msgstr ""
 
-#: inc/template-tags.php:386, inc/template-tags.php:387
+#: inc/template-tags.php:405, inc/template-tags.php:406
 msgid "Share on Facebook"
 msgstr ""
 
-#: inc/template-tags.php:392, inc/template-tags.php:393
+#: inc/template-tags.php:411, inc/template-tags.php:412
 msgid "Share on LinkedIn"
 msgstr ""
 
@@ -208,6 +229,6 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:35, template-parts/content.php:39
+#: template-parts/content-page.php:34, template-parts/content.php:36
 msgid "Pages:"
 msgstr ""

@@ -4,6 +4,7 @@
   "description": "A theme for Buntport",
   "main": "Gulpfile.js",
   "dependencies": {
+    "accoutrement": "^2.1.4",
     "accoutrement-color": "^2.0.1",
     "accoutrement-herman": "1.0.0-alpha.4",
     "accoutrement-init": "^1.1.0",
@@ -24,7 +25,7 @@
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.2.0",
+    "gulp-sass": "^4.1.0",
     "gulp-sass-lint": "^1.1.1",
     "gulp-sort": "^1.1.1",
     "gulp-sourcemaps": "^1.6.0",
@@ -40,7 +41,11 @@
   },
   "devDependencies": {},
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "test": "echo \"No test specified\""
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
   },
   "repository": {
     "type": "git",

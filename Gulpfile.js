@@ -24,6 +24,8 @@ var svgstore = require('gulp-svgstore');
 var uglify = require('gulp-uglify');
 var wpPot = require('gulp-wp-pot');
 
+// sass.compiler = require('sass');
+
 // Set assets paths.
 var paths = {
   css: ['./*.css', '!*.min.css'],

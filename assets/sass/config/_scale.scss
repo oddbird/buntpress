@@ -16,18 +16,22 @@ $ratios: (
 
 $sizes: (
   'root': 20px,
-  'rhythm': 'root' ('buntpress': 1),
+  'rhythm': '#root' ('buntpress': 1),
 
-  'small': 'root' ('buntpress': -0.75),
-  'large': 'root' ('buntpress': 1),
-  'larger': 'root' ('buntpress': 2),
+  'small': '#root' ('buntpress': -0.75),
+  'large': '#root' ('buntpress': 1),
+  'larger': '#root' ('buntpress': 2),
 
-  'gutter': 'rhythm',
-  'shim': 'gutter' ('linear': 0.5),
-  'half-shim': 'gutter' ('linear': 0.25),
+  'gutter': '#rhythm',
+  'shim': '#gutter' ('linear': 0.5),
+  'half-shim': '#gutter' ('linear': 0.25),
 
   'corners': 6px,
   'page': 50rem,
 
   'small-screen': 30rem,
 );
+
+@mixin font-size($size) {
+  font-size: size($size);
+}

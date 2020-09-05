@@ -10,7 +10,8 @@ $brand-colors: (
   'brand-pink': #d83a5d,
 );
 
-@include herman-add-colors('brand-colors', $brand-colors);
+@include add-colors($brand-colors);
+@include herman-add('colors', 'brand-colors', $brand-colors);
 
 
 // UI Colors
@@ -22,7 +23,8 @@ $ui-colors: (
   'contrast-dark': #23090f,
 );
 
-@include herman-add-colors('ui-colors', $ui-colors);
+@include add-colors($ui-colors);
+@include herman-add('colors', 'ui-colors', $ui-colors);
 
 
 // Theme Colors
@@ -30,14 +32,15 @@ $ui-colors: (
 /// hello, theme colors!
 /// @preview color-palette
 $theme-colors: (
-  'text': 'contrast-dark',
-  'background': 'contrast-light',
-  'action': 'brand-pink',
-  'focus': 'action' ('shade': 30%),
-  'invert': 'action' ('shade': 70%),
+  'text': '#contrast-dark',
+  'background': '#contrast-light',
+  'action': '#brand-pink',
+  'focus': '#action' ('shade': 30%),
+  'invert': '#action' ('shade': 70%),
 
-  'callout': 'action' ('tint': 85%),
-  'border': 'action' ('tint': 75%),
+  'callout': '#action' ('tint': 85%),
+  'border': '#action' ('tint': 75%),
 );
 
-@include herman-add-colors('theme-colors', $theme-colors);
+@include add-colors($theme-colors);
+@include herman-add('colors', 'theme-colors', $theme-colors);

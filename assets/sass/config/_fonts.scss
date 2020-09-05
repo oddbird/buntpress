@@ -11,11 +11,13 @@ $font-path: 'assets/fonts/';
 $title-font: (
   'name': 'amatic',
   'stack': ('azo-sans-web', 'Helvetica Neue', Helvetica, Arial, sans-serif),
+  'formats': ('woff2', 'woff', 'ttf'),
   'regular': 'amaticsc-regular-webfont',
   'bold': 'amatic-bold-webfont',
 );
 
-@include herman-add-font('title', $title-font);
+@include add-font('title', $title-font)
+@include herman-add('font', 'title', $title-font);
 
 
 // Body Font
@@ -27,7 +29,8 @@ $body-font: (
   'stack': ('Helvetica Neue', Helvetica, Arial, sans-serif),
 );
 
-@include herman-add-font('body', $body-font);
+@include add-font('body', $body-font);
+@include herman-add('font', 'body', $body-font);
 
 
 // Code Font
@@ -39,4 +42,5 @@ $code-font: (
   'stack': (Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace),
 );
 
-@include herman-add-font('code', $code-font);
+@include add-font('code', $code-font);
+@include herman-add('font', 'code', $code-font);
